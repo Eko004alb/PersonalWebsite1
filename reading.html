@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reading — Erik Guza</title>
+  <meta name="description" content="Reading page for Erik Guza." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * { cursor: auto !important; }
+    .simple-page {
+      padding: 140px 24px 100px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .simple-page h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+    .simple-page p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1.02rem;
+      margin-bottom: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <svg style="display: none" aria-hidden="true" focusable="false">
+      <filter id="glass-distortion">
+        <feTurbulence type="turbulence" baseFrequency="0.008" numOctaves="2" result="noise"></feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="77"></feDisplacementMap>
+      </filter>
+    </svg>
+    <nav class="glass-nav">
+      <div class="glass-filter"></div>
+      <div class="glass-overlay"></div>
+      <div class="glass-specular"></div>
+      <div class="glass-content nav-inner">
+        <a href="index.html" class="nav-logo">ERIK GUZA<sup>™</sup></a>
+        <ul class="nav-links nav-list">
+          <li><a href="index.html#hero" class="nav-item">Home</a></li>
+          <li><a href="index.html#about" class="nav-item">About</a></li>
+          <li><a href="index.html#experience" class="nav-item">Experience</a></li>
+          <li><a href="index.html#education" class="nav-item">Education</a></li>
+          <li><a href="projects.html" class="nav-item">Projects</a></li>
+          <li><a href="reading.html" class="nav-item active">Reading</a></li>
+          <li><a href="blog.html" class="nav-item">Blog</a></li>
+          <li><a href="mailto:erikguzawork@gmail.com" class="nav-cta">Get in Touch</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="simple-page">
+    <p class="section-label fade-in">Reading</p>
+    <h1 class="fade-in">Reading List</h1>
+    <p class="fade-in">This is your dedicated Reading page.</p>
+    <p class="fade-in">You can add books, notes, and recommendations here once you decide the structure.</p>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© 2025 Erik Guza</span>
+      <div class="footer-links">
+        <a href="projects.html">Projects</a>
+        <a href="reading.html">Reading</a>
+        <a href="blog.html">Blog</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+  <script>
+    // #region agent log
+    (() => {
+      const runId = 'pre-fix-1';
+      const sendDebug = (hypothesisId, message, data) => {
+        fetch('http://127.0.0.1:7259/ingest/2bce858e-d49e-43e1-a51c-5e826b6f5e27',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'9a9e75'},body:JSON.stringify({sessionId:'9a9e75',runId,hypothesisId,location:'reading.html:debug-circles',message,data,timestamp:Date.now()})}).catch(()=>{});
+        if (navigator.sendBeacon) {
+          const payload = JSON.stringify({sessionId:'9a9e75',runId,hypothesisId,location:'reading.html:debug-circles:beacon',message,data,timestamp:Date.now()});
+          navigator.sendBeacon('http://127.0.0.1:7259/ingest/2bce858e-d49e-43e1-a51c-5e826b6f5e27', new Blob([payload], { type: 'application/json' }));
+        }
+      };
+      window.addEventListener('load', () => {
+        const circles = Array.from(document.querySelectorAll('.decor-circle'));
+        sendDebug('H1', 'Viewport and page context', { pathname: window.location.pathname, viewportWidth: window.innerWidth, viewportHeight: window.innerHeight });
+        sendDebug('H4', 'Circle DOM presence', { circleCount: circles.length, classes: circles.map((el) => el.className) });
+      });
+    })();
+    // #endregion
+  </script>
+</body>
+</html>

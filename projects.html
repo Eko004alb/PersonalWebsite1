@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Erik Guza</title>
+  <meta name="description" content="Projects page for Erik Guza." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * { cursor: auto !important; }
+    .projects-page-main {
+      padding-top: 96px;
+      min-height: calc(100vh - 160px);
+    }
+    .projects-page-list {
+      display: grid;
+      gap: 1px;
+      margin-top: 16px;
+    }
+    .projects-page-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background-color var(--transition);
+    }
+    .projects-page-item:first-of-type {
+      border-top: 1px solid var(--border);
+    }
+    .projects-page-item-left {
+      flex: 1;
+      min-width: 0;
+    }
+    .projects-page-image-wrap {
+      width: 180px;
+      height: 110px;
+      flex-shrink: 0;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface-frost);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .projects-page-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1);
+      transition: transform 220ms ease;
+      transform-origin: center;
+    }
+    .projects-page-item.linked:hover .projects-page-image {
+      transform: scale(1.08);
+    }
+    .projects-page-item.linked:hover .project-arrow {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+    .projects-page-image-slot {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dim);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .projects-page-placeholder {
+      opacity: 0.95;
+    }
+    @media (max-width: 840px) {
+      .projects-page-item {
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .projects-page-image-wrap {
+        width: 100%;
+        max-width: 340px;
+        height: 170px;
+      }
+      .projects-page-item.linked:hover .projects-page-image {
+        transform: scale(1.04);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <svg style="display: none" aria-hidden="true" focusable="false">
+      <filter id="glass-distortion">
+        <feTurbulence type="turbulence" baseFrequency="0.008" numOctaves="2" result="noise"></feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="77"></feDisplacementMap>
+      </filter>
+    </svg>
+    <nav class="glass-nav">
+      <div class="glass-filter"></div>
+      <div class="glass-overlay"></div>
+      <div class="glass-specular"></div>
+      <div class="glass-content nav-inner">
+        <a href="index.html" class="nav-logo">ERIK GUZA<sup>™</sup></a>
+        <ul class="nav-links nav-list">
+          <li><a href="index.html#hero" class="nav-item">Home</a></li>
+          <li><a href="index.html#about" class="nav-item">About</a></li>
+          <li><a href="index.html#experience" class="nav-item">Experience</a></li>
+          <li><a href="index.html#education" class="nav-item">Education</a></li>
+          <li><a href="projects.html" class="nav-item active">Projects</a></li>
+          <li><a href="reading.html" class="nav-item">Reading</a></li>
+          <li><a href="blog.html" class="nav-item">Blog</a></li>
+          <li><a href="mailto:erikguzawork@gmail.com" class="nav-cta">Get in Touch</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="projects-page-main">
+    <section id="projects">
+      <div class="section-wrap">
+        <p class="section-label fade-in">Featured Work</p>
+        <h1 class="section-title fade-in">Projects</h1>
+        <p class="projects-page-intro fade-in">
+          Open each project to see details, links, and visuals. BiteTalk is live,
+          and there is room reserved for your next builds.
+        </p>
+
+        <div class="projects-page-list" id="projects-list"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© 2025 Erik Guza</span>
+      <div class="footer-links">
+        <a href="projects.html">Projects</a>
+        <a href="reading.html">Reading</a>
+        <a href="blog.html">Blog</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="project-data.js"></script>
+  <script>
+    const projectsListRoot = document.getElementById('projects-list');
+    const projects = Array.isArray(window.PROJECTS) ? window.PROJECTS : [];
+    const escapeHtml = (text) =>
+      String(text || '')
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+
+    const renderTags = (tags) => {
+      if (!Array.isArray(tags) || tags.length === 0) return '';
+      return `
+        <div class="project-tags">
+          ${tags.map((tag) => `<span class="project-tag">${escapeHtml(tag)}</span>`).join('')}
+        </div>
+      `;
+    };
+
+    const renderImage = (project) => {
+      if (project.slug === "project-02") {
+        return `
+          <div class="resensio-card-cover" aria-label="Resensio cover preview">
+            <div class="resensio-card-bg-orb-1"></div>
+            <div class="resensio-card-bg-orb-2"></div>
+            <div class="resensio-card-bg-orb-3"></div>
+            <div class="resensio-card-bg-orb-4"></div>
+            <div class="resensio-card-center">
+              <div class="resensio-orb resensio-orb-110"></div>
+              <div class="resensio-card-wordmark"><span>Re</span>sensio</div>
+              <div class="resensio-card-tagline">Feel what's inside</div>
+            </div>
+          </div>
+        `;
+      }
+      if (project.heroImage) {
+        return `
+          <img
+            src="${escapeHtml(project.heroImage)}"
+            alt="${escapeHtml(project.title)} project preview"
+            class="projects-page-image"
+          />
+        `;
+      }
+      return '<div class="projects-page-image-slot">Project image</div>';
+    };
+
+    projectsListRoot.innerHTML = projects.map((project) => `
+      <a href="project.html?slug=${encodeURIComponent(project.slug)}" class="projects-page-item linked fade-in">
+        <div class="projects-page-image-wrap">
+          ${renderImage(project)}
+        </div>
+        <div class="projects-page-item-left">
+          <p class="project-num">${escapeHtml(project.number || '')}</p>
+          <h2 class="project-name">${escapeHtml(project.title || 'Untitled Project')}</h2>
+          <p class="project-desc">${escapeHtml(project.shortDescription || '')}</p>
+          ${renderTags(project.tags)}
+        </div>
+        <span class="project-arrow">↗</span>
+      </a>
+    `).join('');
+  </script>
+  <script>
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+  <script>
+    // #region agent log
+    (() => {
+      const runId = 'pre-fix-1';
+      const sendDebug = (hypothesisId, message, data) => {
+        fetch('http://127.0.0.1:7259/ingest/2bce858e-d49e-43e1-a51c-5e826b6f5e27',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'9a9e75'},body:JSON.stringify({sessionId:'9a9e75',runId,hypothesisId,location:'projects.html:debug-circles',message,data,timestamp:Date.now()})}).catch(()=>{});
+        if (navigator.sendBeacon) {
+          const payload = JSON.stringify({sessionId:'9a9e75',runId,hypothesisId,location:'projects.html:debug-circles:beacon',message,data,timestamp:Date.now()});
+          navigator.sendBeacon('http://127.0.0.1:7259/ingest/2bce858e-d49e-43e1-a51c-5e826b6f5e27', new Blob([payload], { type: 'application/json' }));
+        }
+      };
+      window.addEventListener('load', () => {
+        const circles = Array.from(document.querySelectorAll('.decor-circle'));
+        sendDebug('H1', 'Viewport and page context', { pathname: window.location.pathname, viewportWidth: window.innerWidth, viewportHeight: window.innerHeight });
+        sendDebug('H4', 'Circle DOM presence', { circleCount: circles.length, classes: circles.map((el) => el.className) });
+      });
+    })();
+    // #endregion
+  </script>
+</body>
+</html>

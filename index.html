@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erik Guza</title>
+  <meta name="description" content="Erik Guza — Marketing, Growth & Product." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="home-page">
+  <!-- NAV: reuse this exact header block on every page for global liquid-glass consistency -->
+  <header class="site-header">
+    <!-- SVG Filter for Glass Distortion -->
+    <svg style="display: none" aria-hidden="true" focusable="false">
+      <filter id="glass-distortion">
+        <feTurbulence type="turbulence" baseFrequency="0.008" numOctaves="2" result="noise"></feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="77"></feDisplacementMap>
+      </filter>
+    </svg>
+
+    <nav class="glass-nav">
+      <div class="glass-filter"></div>
+      <div class="glass-overlay"></div>
+      <div class="glass-specular"></div>
+      <div class="glass-content nav-inner">
+        <a href="#hero" class="nav-logo">ERIK GUZA<sup>™</sup></a>
+        <ul class="nav-links nav-list">
+          <li><a href="#hero" class="nav-item active">Home</a></li>
+          <li><a href="#about" class="nav-item">About</a></li>
+          <li><a href="#experience" class="nav-item">Experience</a></li>
+          <li><a href="#education" class="nav-item">Education</a></li>
+          <li><a href="projects.html" class="nav-item">Projects</a></li>
+          <li><a href="reading.html" class="nav-item">Reading</a></li>
+          <li><a href="blog.html" class="nav-item">Blog</a></li>
+          <li><a href="mailto:erikguzawork@gmail.com" class="nav-cta">Get in Touch</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- OPERA INTRO -->
+  <section class="opera-intro" aria-label="Sydney Opera House intro video">
+    <video class="opera-intro-video" autoplay muted playsinline loop preload="metadata">
+      <source src="assets/Sydney video Header.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <img src="assets/star-clean.png" alt="" class="decor-star hero-star-a" aria-hidden="true" />
+      <span class="decor-circle hero-circle-a" aria-hidden="true"></span>
+      <div class="hero-logo-wrap fade-in">
+        <img src="assets/104.svg" alt="104 logo" class="hero-main-logo" />
+      </div>
+      <p class="hero-greeting fade-in">Hey, I'm Erik 👋</p>
+      <h1 class="hero-heading fade-in">
+        I'm passionate about<br>
+        <span class="typed-text"></span><span class="cursor"></span>
+      </h1>
+
+      <!-- Current role chip -->
+      <div class="hero-role-chip fade-in">
+        <img
+          src="https://www.settimo-cielo.it/cdn/shop/files/SETTIMO_CIELO_K.A._BLACK_COLLEZIONI_ESCLUISIVE_3ba81d63-5899-4140-bafc-822d34a00eb9.png?v=1736531924&width=440"
+          alt="Settimo Cielo"
+          class="role-chip-logo"
+        />
+        <div class="role-chip-text">
+          <strong>Growth @ Settimo Cielo</strong>
+          Currently driving growth strategy
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GRID -->
+  <div class="photo-grid-section">
+    <div class="photo-grid-track">
+      <img src="assets/afp-group.jpeg" alt="Apple Foundation Programme – cohort" class="photo-real" />
+      <img src="assets/afp-aerial.jpeg" alt="Apple Foundation Programme – design session" class="photo-real" />
+      <img src="assets/afp-halloween.jpeg" alt="Apple Foundation Programme – working session" class="photo-real" />
+      <div class="photo-placeholder">Settimo Cielo</div>
+      <div class="photo-placeholder">Growth Work</div>
+      <div class="photo-placeholder">Bologna</div>
+      <!-- duplicated for seamless loop -->
+      <img src="assets/afp-group.jpeg" alt="Apple Foundation Programme – cohort" class="photo-real" />
+      <img src="assets/afp-aerial.jpeg" alt="Apple Foundation Programme – design session" class="photo-real" />
+      <img src="assets/afp-halloween.jpeg" alt="Apple Foundation Programme – working session" class="photo-real" />
+      <div class="photo-placeholder">Settimo Cielo</div>
+      <div class="photo-placeholder">Growth Work</div>
+      <div class="photo-placeholder">Bologna</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-wrap">
+      <img src="assets/star-clean.png" alt="" class="decor-star about-star-a" aria-hidden="true" />
+      <span class="decor-circle about-circle-a" aria-hidden="true"></span>
+      <p class="section-label fade-in">About</p>
+      <h2 class="section-title fade-in">Who I am</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="fade-in">
+            I'm <strong>Erik Guza</strong> — Albanian-Italian, studying International Management
+            and passionate about growth, startups, and building things that scale.
+          </p>
+          <p class="fade-in">
+            Currently pursuing a <strong>Double Degree in International Management</strong> at CEMS
+            (Stockholm School of Economics & UCD), after an exchange at <strong>UTS Sydney</strong>
+            where I finished in the top 4% of my cohort and participated in the
+            <strong>Apple Foundation Programme</strong>.
+          </p>
+          <p class="fade-in">
+            I've led growth for a fashion e-commerce brand, managed 12-person marketing teams,
+            and built content accounts from zero to 6M+ views. I care about neuroscience,
+            productivity, vibe coding, and anything that makes people move.
+          </p>
+        </div>
+        <div>
+          <div class="tag-row fade-in">
+            <span class="tag">Growth</span>
+            <span class="tag">Marketing</span>
+            <span class="tag">Product</span>
+            <span class="tag">Startups</span>
+            <span class="tag">Neuroscience</span>
+            <span class="tag">Vibe Coding</span>
+            <span class="tag">Apple Foundation</span>
+            <span class="tag">CEMS</span>
+          </div>
+          <div class="lang-row fade-in">
+            <p class="lang-label">Languages</p>
+            <div class="tag-row">
+              <span class="tag">🇮🇹 Italian</span>
+              <span class="tag">🇬🇧 English C1</span>
+              <span class="tag">🇦🇱 Albanian</span>
+              <span class="tag">🇩🇪 German B1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-wrap">
+      <img src="assets/star-clean.png" alt="" class="decor-star experience-star-a" aria-hidden="true" />
+      <span class="decor-circle experience-circle-a" aria-hidden="true"></span>
+      <p class="section-label fade-in">Experience</p>
+      <h2 class="section-title fade-in">Where I work</h2>
+
+      <!-- Settimo Cielo -->
+      <div class="exp-item fade-in">
+        <img src="https://www.settimo-cielo.it/cdn/shop/files/SETTIMO_CIELO_K.A._BLACK_COLLEZIONI_ESCLUISIVE_3ba81d63-5899-4140-bafc-822d34a00eb9.png?v=1736531924&width=440" alt="Settimo Cielo" class="exp-logo" />
+        <div class="exp-content">
+          <div class="exp-top">
+            <span class="exp-company">Settimo Cielo</span>
+            <span class="exp-badge">Current</span>
+          </div>
+          <p class="exp-role">Growth Intern · Bologna, Italy · Mar 2026 – Present</p>
+          <ul class="exp-bullets">
+            <li>Launched a full-funnel digital growth strategy for a Made-in-Italy women's fashion brand — drove <strong>+28% organic traffic</strong> and <strong>+18% CVR</strong> via SEO, content restructuring, and A/B testing.</li>
+            <li>Scaled Instagram & TikTok channels, cutting CPC by 31% and growing combined following by <strong>4,200+</strong>.</li>
+            <li>Developed a real-time GA4 + Meta Ads dashboard tracking CAC, ROAS (peak <strong>4.2x</strong>), and retention.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Stand Europa -->
+      <div class="exp-item fade-in">
+        <img src="assets/stand-europa-logo.webp" alt="Stand Europa" class="exp-logo" />
+        <div class="exp-content">
+          <div class="exp-top">
+            <span class="exp-company">Stand Europa Srl</span>
+          </div>
+          <p class="exp-role">Marketing Intern · Udine, Italy · Jun 2025 – Aug 2025</p>
+          <ul class="exp-bullets">
+            <li>Conducted national and European <strong>market analysis</strong>, evaluating potential partner companies to identify strategic growth opportunities.</li>
+            <li>Supported the CEO in managing <strong>strategic partnerships</strong> and strengthening external stakeholder relationships.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- JEBO -->
+      <div class="exp-item fade-in">
+        <img src="assets/jebo-logo.png" alt="JEBO" class="exp-logo" />
+        <div class="exp-content">
+          <div class="exp-top">
+            <span class="exp-company">JEBO</span>
+          </div>
+          <p class="exp-role">Marketing & Communication Associate · Bologna, Italy · May 2024 – Oct 2025</p>
+          <ul class="exp-bullets">
+            <li>Planned and executed digital strategies for clients, developing JEBO's Digital Brand Identity and leading its LinkedIn rebranding.</li>
+            <li>As Project Manager (Dec 2024 – Jul 2025), managed a team of <strong>12 people</strong> across social media strategy for national clients.</li>
+            <li>Designed a zero-budget social campaign generating <strong>400K+ impressions/month</strong> and <strong>+35% follower growth</strong> in 1 month.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Content Creator -->
+      <div class="exp-item fade-in">
+        <div class="exp-logo-placeholder">✦</div>
+        <div class="exp-content">
+          <div class="exp-top">
+            <span class="exp-company">Content Creator & Founder</span>
+          </div>
+          <p class="exp-role">Udine, Italy · Jul 2022 – Jun 2023</p>
+          <ul class="exp-bullets">
+            <li>Founded and managed Instagram and TikTok accounts reaching <strong>12K+ followers</strong> and <strong>6M+ views</strong>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-wrap">
+      <img src="assets/star-clean.png" alt="" class="decor-star education-star-a" aria-hidden="true" />
+      <span class="decor-circle education-circle-a" aria-hidden="true"></span>
+      <p class="section-label fade-in">Education</p>
+      <h2 class="section-title fade-in">Academic background</h2>
+
+      <div class="exp-item fade-in">
+        <img src="assets/cems-logo.png" alt="CEMS" class="exp-logo" />
+        <div class="exp-content">
+          <div class="exp-top"><span class="exp-company">CEMS — UCD Dublin & SSE Stockholm <span class="logo-flags edu-flags" aria-hidden="true">🇮🇪 🇸🇪</span></span><span class="exp-badge">Upcoming</span></div>
+          <p class="exp-role">Double Degree in International Management · Aug 2026 – Sep 2027</p>
+          <p class="exp-desc">4th Master in Management Worldwide. Dual degree across University College Dublin and Stockholm School of Economics.</p>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <img src="assets/uts-clean.png" alt="UTS" class="exp-logo" />
+        <div class="exp-content">
+          <div class="exp-top"><span class="exp-company">University of Technology Sydney (UTS) <span class="logo-flags edu-flags" aria-hidden="true">🇦🇺</span></span></div>
+          <p class="exp-role">Exchange Student – Faculty of Business · Sydney, Australia · Jul – Dec 2025</p>
+          <p class="exp-desc">Selected for the Apple Foundation Programme. Active in Bluebird Pantry – UTS Students' Association.</p>
+        </div>
+      </div>
+
+      <div class="exp-item fade-in">
+        <img src="assets/unibo-logo.png" alt="UNIBO" class="exp-logo" />
+        <div class="exp-content">
+          <div class="exp-top"><span class="exp-company">Alma Mater Studiorum – Università di Bologna <span class="logo-flags edu-flags" aria-hidden="true">🇮🇹</span></span></div>
+          <p class="exp-role">Bachelor in Management & Marketing · Bologna, Italy · Sep 2023 – Present</p>
+          <p class="exp-desc">I wish it was a bit higher 👀</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-wrap">
+      <img src="assets/star-clean.png" alt="" class="decor-star projects-star-a" aria-hidden="true" />
+      <span class="decor-circle projects-circle-a" aria-hidden="true"></span>
+      <p class="section-label fade-in">Featured Work</p>
+      <h2 class="section-title fade-in">Selected projects</h2>
+
+      <div class="projects-list">
+        <article class="featured-project-card fade-in">
+          <a href="project.html?slug=bitetalk" class="featured-project-image-link">
+            <img src="assets/bitetalk-promo.png" alt="BiteTalk app preview" class="featured-project-image" />
+          </a>
+          <div class="featured-project-content">
+            <div class="project-top-row">
+              <img src="assets/bitetalk-icon.png" alt="BiteTalk" class="project-app-icon" />
+              <p class="project-num">01</p>
+            </div>
+            <a href="project.html?slug=bitetalk" class="featured-project-title-link">
+              <h3 class="project-name">BiteTalk</h3>
+            </a>
+            <p class="project-desc">
+              An app that informs you about the food you eat. Snap a photo of your meal
+              and get an AI-generated audio summary of nutritional info, ingredients, and
+              cultural context. Built and pitched as part of the Apple Foundation Programme at UTS.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">iOS App</span>
+              <span class="project-tag">Product Design</span>
+              <span class="project-tag">Apple Foundation</span>
+              <span class="project-tag">UTS</span>
+              <span class="project-tag">AI</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="featured-project-card fade-in">
+          <a href="project.html?slug=project-02" class="featured-project-image-link">
+            <div class="resensio-card-cover">
+              <div class="resensio-card-bg-orb-1"></div>
+              <div class="resensio-card-bg-orb-2"></div>
+              <div class="resensio-card-bg-orb-3"></div>
+              <div class="resensio-card-bg-orb-4"></div>
+              <div class="resensio-card-center">
+                <div class="resensio-orb resensio-orb-110"></div>
+                <div class="resensio-card-wordmark"><span>Re</span>sensio</div>
+                <div class="resensio-card-tagline">Feel what's inside</div>
+              </div>
+            </div>
+          </a>
+          <div class="featured-project-content">
+            <div class="project-top-row">
+              <div class="resensio-orb resensio-orb-40" aria-hidden="true"></div>
+              <p class="project-num">02</p>
+            </div>
+            <a href="project.html?slug=project-02" class="featured-project-title-link">
+              <h3 class="project-name">Resensio</h3>
+            </a>
+            <p class="project-desc">
+              A free, science-backed awareness app that helps people reconnect with
+              their emotional language through a validated TAS-20 based self-assessment
+              and a practical emotional journaling flow.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">Mental Health</span>
+              <span class="project-tag">Self-Awareness</span>
+              <span class="project-tag">TAS-20</span>
+              <span class="project-tag">Emotional Journal</span>
+              <span class="project-tag">Research-Backed</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- READING -->
+  <section id="reading">
+    <div class="section-wrap">
+      <img src="assets/star-clean.png" alt="" class="decor-star reading-star-a" aria-hidden="true" />
+      <span class="decor-circle reading-circle-a" aria-hidden="true"></span>
+      <p class="section-label fade-in">Reading</p>
+      <h2 class="section-title fade-in">What I'm reading</h2>
+
+      <!-- Currently reading -->
+      <div id="reading-current" class="reading-current fade-in" style="display:none">
+        <p class="reading-now-label">📖 Currently reading</p>
+        <div class="reading-now-card">
+          <div class="reading-now-info">
+            <span id="reading-now-title" class="reading-now-title"></span>
+            <span id="reading-now-author" class="reading-now-author"></span>
+          </div>
+          <div class="reading-progress-wrap">
+            <div id="reading-progress-bar" class="reading-progress-bar"></div>
+          </div>
+          <span id="reading-progress-label" class="reading-progress-label"></span>
+        </div>
+      </div>
+
+      <!-- Books grid -->
+      <div id="books-grid" class="books-grid">
+        <!-- populated by JS, falls back to hardcoded data -->
+      </div>
+
+      <div class="reading-footer fade-in">
+        <a href="https://www.notion.so/ada1e1a6ce3a44b8b64479398a810682" target="_blank" rel="noopener" class="reading-notion-link">
+          View full list in Notion →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section id="blog">
+    <div class="section-wrap">
+      <p class="section-label fade-in">Writing</p>
+      <h2 class="section-title fade-in">Blog</h2>
+      <div class="blog-empty fade-in">
+        <p>Posts coming soon — writing about marketing, growth, and things I find interesting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-wrap">
+      <img src="assets/star-clean.png" alt="" class="decor-star contact-star-a" aria-hidden="true" />
+      <span class="decor-circle contact-circle-a" aria-hidden="true"></span>
+      <p class="section-label fade-in">Contact</p>
+      <h2 class="section-title fade-in">Let's connect</h2>
+      <div class="contact-inner fade-in">
+        <div class="contact-text">
+          <p>Open to interesting conversations, collaborations, or just a good chat about marketing and ideas.</p>
+        </div>
+        <div class="contact-links">
+          <a href="mailto:erikguzawork@gmail.com" class="contact-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+            erikguzawork@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/erik-guza-835805293/" target="_blank" rel="noopener" class="contact-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://x.com/ErikGWork142599" target="_blank" rel="noopener" class="contact-link">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X / Twitter
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-copy">© 2025 Erik Guza</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/erik-guza-835805293/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://x.com/ErikGWork142599" target="_blank" rel="noopener">X</a>
+        <a href="blog.html">Blog</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Typing animation
+    const phrases = [
+      'Growth',
+      'Startups',
+      'Vibe Coding',
+      'Productivity',
+      'Neuroscience',
+    ];
+    let pi = 0, ci = 0, deleting = false;
+    const el = document.querySelector('.typed-text');
+    function type() {
+      const phrase = phrases[pi];
+      if (!deleting) {
+        el.textContent = phrase.slice(0, ++ci);
+        if (ci === phrase.length) { deleting = true; setTimeout(type, 1800); return; }
+      } else {
+        el.textContent = phrase.slice(0, --ci);
+        if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+      }
+      setTimeout(type, deleting ? 40 : 80);
+    }
+    type();
+
+    // Fade in on scroll
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+  </script>
+
+  <script>
+    // ── Reading section — Notion live data ──────────────────
+    const FALLBACK_BOOKS = [
+      { title: 'The Goal',             author: 'Goldratt & Cox',    status: 'Reading', rating: null,    currentPage: 11, totalPages: 333 },
+      { title: 'Recharge',             author: 'Daniel Ko',         status: 'Read',    rating: 3,       currentPage: 168, totalPages: 168 },
+      { title: 'La Tregua',            author: 'Primo Levi',        status: 'Read',    rating: 3,       currentPage: 240, totalPages: 240 },
+      { title: '4 ore alla settimana', author: 'Timothy Ferris',    status: 'Read',    rating: 4,       currentPage: 350, totalPages: 350 },
+      { title: 'The Strangest Secret', author: 'Earl Nightingale',  status: 'Read',    rating: 4,       currentPage: 60,  totalPages: 60  },
+      { title: 'Alibaba',              author: 'Duncan Clark',      status: 'Read',    rating: 3,       currentPage: 330, totalPages: 330 },
+      { title: 'Grinding it Out',      author: 'Ray Kroc',          status: 'Read',    rating: 4,       currentPage: 210, totalPages: 210 },
+      { title: 'The Seeker of Nothing',author: 'Kabir Munjal',      status: 'Read',    rating: 4,       currentPage: 212, totalPages: 212 },
+    ];
+
+    function parseNotionBooks(data) {
+      return data.results.map(page => {
+        const p = page.properties;
+        const rating = p.Rating?.select?.name ? p.Rating.select.name.length : null;
+        return {
+          title:       p.Name?.title?.[0]?.plain_text || '—',
+          author:      p.Author?.rich_text?.[0]?.plain_text || '',
+          status:      p.Status?.status?.name || '',
+          rating,
+          currentPage: p['Current Page']?.number || 0,
+          totalPages:  p['Total Pages']?.number || 0,
+        };
+      });
+    }
+
+    function renderBooks(books) {
+      const currently = books.filter(b => b.status === 'Reading');
+      const read      = books.filter(b => b.status === 'Read');
+
+      // Currently reading
+      const currentWrap = document.getElementById('reading-current');
+      if (currently.length) {
+        const b = currently[0];
+        const pct = b.totalPages ? Math.round((b.currentPage / b.totalPages) * 100) : 0;
+        document.getElementById('reading-now-title').textContent  = b.title;
+        document.getElementById('reading-now-author').textContent = b.author;
+        document.getElementById('reading-progress-bar').style.width = pct + '%';
+        document.getElementById('reading-progress-label').textContent = `${b.currentPage} / ${b.totalPages} pages`;
+        currentWrap.style.display = '';
+      }
+
+      // Books grid
+      const grid = document.getElementById('books-grid');
+      grid.innerHTML = read.map(b => {
+        const stars = b.rating
+          ? '★'.repeat(b.rating) + '☆'.repeat(5 - b.rating)
+          : '';
+        return `<div class="book-card fade-in">
+          <div class="book-card-inner">
+            <p class="book-title">${b.title}</p>
+            <p class="book-author">${b.author}</p>
+            ${stars ? `<p class="book-rating">${stars}</p>` : ''}
+          </div>
+        </div>`;
+      }).join('');
+
+      // Re-observe new fade-in elements
+      grid.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+    }
+
+    // Try live Notion data first, fall back to hardcoded
+    fetch('notion-books.php')
+      .then(r => r.ok ? r.json() : Promise.reject())
+      .then(data => renderBooks(parseNotionBooks(data)))
+      .catch(() => renderBooks(FALLBACK_BOOKS));
+  </script>
+
+  <script>
+    // #region agent log
+    (() => {
+      const runId = 'pre-fix-1';
+      const sendDebug = (hypothesisId, message, data) => {
+        fetch('http://127.0.0.1:7259/ingest/2bce858e-d49e-43e1-a51c-5e826b6f5e27',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'9a9e75'},body:JSON.stringify({sessionId:'9a9e75',runId,hypothesisId,location:'index.html:debug-circles',message,data,timestamp:Date.now()})}).catch(()=>{});
+        if (navigator.sendBeacon) {
+          const payload = JSON.stringify({sessionId:'9a9e75',runId,hypothesisId,location:'index.html:debug-circles:beacon',message,data,timestamp:Date.now()});
+          navigator.sendBeacon('http://127.0.0.1:7259/ingest/2bce858e-d49e-43e1-a51c-5e826b6f5e27', new Blob([payload], { type: 'application/json' }));
+        }
+      };
+
+      window.addEventListener('load', () => {
+        const circles = Array.from(document.querySelectorAll('.decor-circle'));
+        sendDebug('H1', 'Viewport and page context', {
+          pathname: window.location.pathname,
+          viewportWidth: window.innerWidth,
+          viewportHeight: window.innerHeight
+        });
+        sendDebug('H4', 'Circle DOM presence', {
+          circleCount: circles.length,
+          classes: circles.map((el) => el.className)
+        });
+        const samples = circles.slice(0, 4).map((el) => {
+          const style = window.getComputedStyle(el);
+          const rect = el.getBoundingClientRect();
+          return {
+            className: el.className,
+            display: style.display,
+            opacity: style.opacity,
+            borderColor: style.borderColor,
+            width: style.width,
+            height: style.height,
+            zIndex: style.zIndex,
+            rect: { top: rect.top, left: rect.left, right: rect.right, bottom: rect.bottom }
+          };
+        });
+        const hiddenCount = samples.filter((s) => s.display === 'none' || Number(s.opacity) === 0).length;
+        const offscreenCount = samples.filter((s) => s.rect.right < 0 || s.rect.left > window.innerWidth || s.rect.bottom < 0 || s.rect.top > window.innerHeight).length;
+        sendDebug('H2_H5', 'Circle style samples', { samples });
+        sendDebug('H3', 'Circle visibility summary', { hiddenCount, offscreenCount, sampledCount: samples.length });
+      });
+    })();
+    // #endregion
+  </script>
+
+  <script>
+    // #region agent log
+    (() => {
+      const runId = 'nav-box-debug-1';
+      const sendDebug = (hypothesisId, message, data) => {
+        const payload = {sessionId:'c0269b',runId,hypothesisId,location:'index.html:home-nav-debug',message,data,timestamp:Date.now()};
+        fetch('http://127.0.0.1:7259/ingest/2bce858e-d49e-43e1-a51c-5e826b6f5e27',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'c0269b'},body:JSON.stringify(payload)}).catch(()=>{});
+        fetch('http://127.0.0.1:7259/ingest/2bce858e-d49e-43e1-a51c-5e826b6f5e27',{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)}).catch(()=>{});
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon('http://127.0.0.1:7259/ingest/2bce858e-d49e-43e1-a51c-5e826b6f5e27', new Blob([JSON.stringify(payload)], { type: 'application/json' }));
+        }
+      };
+
+      window.addEventListener('load', () => {
+        const bodyHasHomeClass = document.body.classList.contains('home-page');
+        const links = Array.from(document.querySelectorAll('.nav-links a'));
+        const nonCta = links.filter((a) => !a.classList.contains('nav-cta'));
+        const firstNonCta = nonCta[0] || null;
+        const cta = document.querySelector('.nav-links a.nav-cta');
+
+        sendDebug('H1', 'Home page class and nav link counts', {
+          bodyClassName: document.body.className,
+          bodyHasHomeClass,
+          totalLinks: links.length,
+          nonCtaLinks: nonCta.length,
+          hasCta: !!cta
+        });
+
+        if (firstNonCta) {
+          const base = getComputedStyle(firstNonCta);
+          const before = getComputedStyle(firstNonCta, '::before');
+          sendDebug('H2_H3', 'First non-CTA link computed styles', {
+            text: firstNonCta.textContent?.trim() || '',
+            paddingTop: base.paddingTop,
+            paddingRight: base.paddingRight,
+            paddingBottom: base.paddingBottom,
+            paddingLeft: base.paddingLeft,
+            borderTopWidth: base.borderTopWidth,
+            borderTopStyle: base.borderTopStyle,
+            borderTopColor: base.borderTopColor,
+            backgroundColor: base.backgroundColor,
+            pseudoOpacity: before.opacity,
+            pseudoBackgroundColor: before.backgroundColor,
+            pseudoBorderTopWidth: before.borderTopWidth,
+            pseudoDisplay: before.display
+          });
+        }
+
+        if (cta) {
+          const ctaStyle = getComputedStyle(cta);
+          sendDebug('H4', 'CTA visual style values', {
+            text: cta.textContent?.trim() || '',
+            borderTopWidth: ctaStyle.borderTopWidth,
+            borderTopStyle: ctaStyle.borderTopStyle,
+            borderRadius: ctaStyle.borderRadius,
+            backgroundColor: ctaStyle.backgroundColor,
+            paddingLeft: ctaStyle.paddingLeft,
+            paddingRight: ctaStyle.paddingRight
+          });
+        }
+      });
+    })();
+    // #endregion
+  </script>
+
+</body>
+</html>
