@@ -743,6 +743,46 @@ body::before {
   margin-bottom: 10px;
 }
 
+/* About postcards */
+.about-postcards {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.about-postcard {
+  margin: 0;
+  background: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(10px) saturate(135%);
+  -webkit-backdrop-filter: blur(10px) saturate(135%);
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  border-radius: 10px;
+  padding: 8px 8px 24px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.14);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.about-postcard-left { transform: rotate(-2.5deg); }
+.about-postcard-right { transform: rotate(2deg); }
+
+.about-postcard:hover {
+  transform: rotate(0deg) translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+}
+
+.about-postcard img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+.about-postcard-left img { object-position: center 38%; }
+.about-postcard-right img { object-position: center 36%; }
+
 /* ---- BITETALK IMAGE ---- */
 .bitetalk-image-wrap {
   padding: 0 40px 48px;
@@ -1322,6 +1362,16 @@ footer {
   .projects-list { grid-template-columns: 1fr; gap: 20px; }
   .featured-project-card .project-desc { min-height: 0; }
   .about-grid { grid-template-columns: 1fr; gap: 32px; }
+  .about-postcards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    max-width: 320px;
+  }
+  .about-postcard {
+    transform: none;
+    padding-bottom: 18px;
+  }
+  .about-postcard:hover { transform: translateY(-2px); }
   footer { padding: 24px 20px; }
   .nav-links li:not(:last-child) { display: none; }
   .decor-star,
