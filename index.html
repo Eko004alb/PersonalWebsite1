@@ -123,7 +123,7 @@
             and passionate about growth, startups, and building things that scale.
           </p>
           <p class="fade-in">
-            Currently pursuing a <strong>Double Degree in International Management</strong> at CEMS
+            From August I will be pursuing a <strong>Double Degree in International Management</strong> at CEMS
             (Stockholm School of Economics & UCD), after an exchange at <strong>UTS Sydney</strong>
             where I finished in the top 4% of my cohort and participated in the
             <strong>Apple Foundation Programme</strong>.
@@ -180,7 +180,7 @@
         <img src="https://www.settimo-cielo.it/cdn/shop/files/SETTIMO_CIELO_K.A._BLACK_COLLEZIONI_ESCLUISIVE_3ba81d63-5899-4140-bafc-822d34a00eb9.png?v=1736531924&width=440" alt="Settimo Cielo" class="exp-logo" />
         <div class="exp-content">
           <div class="exp-top">
-            <span class="exp-company">Settimo Cielo</span>
+            <span class="exp-company"><a href="https://www.linkedin.com/company/settimo-cielo-collections/" target="_blank" rel="noopener" class="exp-company-link">Settimo Cielo</a></span>
             <span class="exp-badge">Current</span>
           </div>
           <p class="exp-role">Growth Intern · Bologna, Italy · Mar 2026 – Present</p>
@@ -197,7 +197,7 @@
         <img src="assets/stand-europa-logo.webp" alt="Stand Europa" class="exp-logo" />
         <div class="exp-content">
           <div class="exp-top">
-            <span class="exp-company">Stand Europa Srl</span>
+            <span class="exp-company"><a href="https://www.linkedin.com/company/stand-europa-srl/" target="_blank" rel="noopener" class="exp-company-link">Stand Europa Srl</a></span>
           </div>
           <p class="exp-role">Marketing Intern · Udine, Italy · Jun 2025 – Aug 2025</p>
           <ul class="exp-bullets">
@@ -212,7 +212,7 @@
         <img src="assets/jebo-logo.png" alt="JEBO" class="exp-logo" />
         <div class="exp-content">
           <div class="exp-top">
-            <span class="exp-company">JEBO</span>
+            <span class="exp-company"><a href="https://www.linkedin.com/company/jebobologna/" target="_blank" rel="noopener" class="exp-company-link">JEBO</a></span>
           </div>
           <p class="exp-role">Marketing & Communication Associate · Bologna, Italy · May 2024 – Oct 2025</p>
           <ul class="exp-bullets">
@@ -250,7 +250,7 @@
       <div class="exp-item fade-in">
         <img src="assets/cems-logo.png" alt="CEMS" class="exp-logo" />
         <div class="exp-content">
-          <div class="exp-top"><span class="exp-company">CEMS — UCD Dublin & SSE Stockholm <span class="logo-flags edu-flags" aria-hidden="true">🇮🇪 🇸🇪</span></span><span class="exp-badge">Upcoming</span></div>
+          <div class="exp-top"><span class="exp-company"><a href="https://www.cems.org/cems-mim" target="_blank" rel="noopener" class="exp-company-link">CEMS</a> — UCD Dublin & SSE Stockholm <span class="logo-flags edu-flags" aria-hidden="true">🇮🇪 🇸🇪</span></span><span class="exp-badge">Upcoming</span></div>
           <p class="exp-role">Double Degree in International Management · Aug 2026 – Sep 2027</p>
           <p class="exp-desc">4th Master in Management Worldwide. Dual degree across University College Dublin and Stockholm School of Economics.</p>
         </div>
@@ -359,21 +359,6 @@
       <span class="decor-circle reading-circle-a" aria-hidden="true"></span>
       <p class="section-label fade-in">Reading</p>
       <h2 class="section-title fade-in">What I'm reading</h2>
-
-      <!-- Currently reading -->
-      <div id="reading-current" class="reading-current fade-in" style="display:none">
-        <p class="reading-now-label">📖 Currently reading</p>
-        <div class="reading-now-card">
-          <div class="reading-now-info">
-            <span id="reading-now-title" class="reading-now-title"></span>
-            <span id="reading-now-author" class="reading-now-author"></span>
-          </div>
-          <div class="reading-progress-wrap">
-            <div id="reading-progress-bar" class="reading-progress-bar"></div>
-          </div>
-          <span id="reading-progress-label" class="reading-progress-label"></span>
-        </div>
-      </div>
 
       <!-- Books grid -->
       <div id="books-grid" class="books-grid">
@@ -505,20 +490,7 @@
     }
 
     function renderBooks(books) {
-      const currently = books.filter(b => b.status === 'Reading');
-      const read      = books.filter(b => b.status === 'Read');
-
-      // Currently reading
-      const currentWrap = document.getElementById('reading-current');
-      if (currently.length) {
-        const b = currently[0];
-        const pct = b.totalPages ? Math.round((b.currentPage / b.totalPages) * 100) : 0;
-        document.getElementById('reading-now-title').textContent  = b.title;
-        document.getElementById('reading-now-author').textContent = b.author;
-        document.getElementById('reading-progress-bar').style.width = pct + '%';
-        document.getElementById('reading-progress-label').textContent = `${b.currentPage} / ${b.totalPages} pages`;
-        currentWrap.style.display = '';
-      }
+      const read = books.filter(b => b.status === 'Read');
 
       // Books grid
       const grid = document.getElementById('books-grid');
