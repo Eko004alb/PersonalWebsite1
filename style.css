@@ -1121,14 +1121,32 @@ body::before {
 }
 
 .blog-preview-link {
-  display: grid;
-  gap: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
   text-decoration: none;
   color: inherit;
   transition: opacity var(--transition);
 }
 
 .blog-preview-link:hover { opacity: 0.65; }
+
+.blog-preview-thumb {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  background: var(--surface-frost);
+}
+
+.blog-preview-body {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 8px;
+}
 
 .blog-preview-meta {
   font-size: 12px;

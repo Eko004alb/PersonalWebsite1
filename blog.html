@@ -52,8 +52,9 @@
 
     .blog-post-item {
       display: flex;
-      flex-direction: column;
-      gap: 8px;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 20px;
       padding: 32px 0;
       border-top: 1px solid var(--border);
       text-decoration: none;
@@ -62,6 +63,24 @@
     }
     .blog-post-item:last-child { border-bottom: 1px solid var(--border); }
     .blog-post-item:hover { opacity: 0.65; }
+
+    .blog-post-thumb {
+      width: 96px;
+      height: 96px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .blog-post-body {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
 
     .blog-post-meta {
       display: flex;
@@ -98,6 +117,13 @@
       font-size: 1.1rem;
       color: var(--muted);
       margin-top: 4px;
+    }
+
+    @media (max-width: 480px) {
+      .blog-post-thumb {
+        width: 72px;
+        height: 72px;
+      }
     }
 
     /* Empty state */
@@ -166,13 +192,23 @@
   <div class="blog-list">
 
     <a href="posts/a-country-you-love-and-do-not-live-in.html" class="blog-post-item fade-in">
-      <div class="blog-post-meta">
-        <span>Dec 2025</span>
-        <span class="blog-post-tag">Essay</span>
+      <img
+        class="blog-post-thumb"
+        src="posts/assets/diaspora/diaspora-cover.png"
+        alt="Albania diaspora — map of Albania with global connection lines"
+        loading="lazy"
+        width="96"
+        height="96"
+      />
+      <div class="blog-post-body">
+        <div class="blog-post-meta">
+          <span>6 Jun 2026</span>
+          <span class="blog-post-tag">Essay</span>
+        </div>
+        <div class="blog-post-title">A Country You Love and Do Not Live In</div>
+        <div class="blog-post-excerpt">Albania, its diaspora, and the economics of belonging from elsewhere — trust, remittances, and why people love a country they don't live in.</div>
+        <div class="blog-post-arrow">↗</div>
       </div>
-      <div class="blog-post-title">A Country You Love and Do Not Live In</div>
-      <div class="blog-post-excerpt">Albania, its diaspora, and the economics of belonging from elsewhere — trust, remittances, and why people love a country they don't live in.</div>
-      <div class="blog-post-arrow">↗</div>
     </a>
 
   </div>
