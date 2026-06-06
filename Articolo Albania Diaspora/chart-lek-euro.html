@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>EUR/ALL Exchange Rate 2002–2026 — Bank of Albania</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fff;font-family:Georgia,serif;-webkit-font-smoothing:antialiased}
+  .card{padding:1.75rem 1.75rem 1.25rem;max-width:860px}
+  .title{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:1.1rem;color:#1a1a1a;margin-bottom:.3rem;line-height:1.35}
+  .meta{font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:#999;margin-bottom:1.4rem}
+  .wrap{position:relative;width:100%;height:400px}
+  .source{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:#bbb;margin-top:1rem;padding-top:.75rem;border-top:1px solid #f0f0f0;letter-spacing:.03em;line-height:1.6}
+  .source a{color:#CC1A1A;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="card">
+  <p class="title">Albanian lek per euro — monthly average, January 2002 – May 2026</p>
+  <p class="meta">Source: Bank of Albania, official monthly exchange rate series &nbsp;&middot;&nbsp; Lower value = stronger lek</p>
+  <div class="wrap">
+    <canvas id="fx" role="img" aria-label="Monthly EUR ALL exchange rate January 2002 to May 2026. Three phases: 2004-2008 gradual lek appreciation, 2009-2015 lek weakens during Greek crisis peaking at 142.0 in June 2011, 2016-2026 rapid continuous appreciation reaching 95.5 in May 2026.">
+      Jan 2002: 123.7. Peak weakness Jun 2011: 142.0. Appreciation accelerates 2016 onwards. May 2026: 95.5.
+    </canvas>
+  </div>
+  <p class="source">
+    Data: Bank of Albania, monthly official exchange rates (simple average of daily rates). Series: <a href="https://www.bankofalbania.org/Statistics/External_sector_statistics/Exchange_rate/Monthly_average_rate.html" target="_blank">bankofalbania.org → Statistics → Exchange rate → Monthly average rate</a>. 293 monthly observations, Jan 2002 – May 2026. Single source.
+  </p>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const monthly=[
+  [2002.0,123.7],
+  [2002.0833,123.2],
+  [2002.1667,124.3],
+  [2002.25,127.6],
+  [2002.3333,132.9],
+  [2002.4167,136.4],
+  [2002.5,137.3],
+  [2002.5833,135.0],
+  [2002.6667,136.6],
+  [2002.75,136.1],
+  [2002.8333,137.3],
+  [2002.9167,137.9],
+  [2003.0,140.1],
+  [2003.0833,140.1],
+  [2003.1667,140.2],
+  [2003.25,140.1],
+  [2003.3333,140.4],
+  [2003.4167,138.9],
+  [2003.5,136.7],
+  [2003.5833,133.7],
+  [2003.6667,135.3],
+  [2003.75,136.2],
+  [2003.8333,134.9],
+  [2003.9167,133.7],
+  [2004.0,134.0],
+  [2004.0833,133.1],
+  [2004.1667,130.5],
+  [2004.25,128.2],
+  [2004.3333,127.6],
+  [2004.4167,124.8],
+  [2004.5,124.2],
+  [2004.5833,125.0],
+  [2004.6667,125.1],
+  [2004.75,125.7],
+  [2004.8333,127.3],
+  [2004.9167,126.7],
+  [2005.0,126.9],
+  [2005.0833,126.7],
+  [2005.1667,126.4],
+  [2005.25,126.0],
+  [2005.3333,124.8],
+  [2005.4167,123.6],
+  [2005.5,122.0],
+  [2005.5833,121.9],
+  [2005.6667,123.8],
+  [2005.75,123.0],
+  [2005.8333,122.6],
+  [2005.9167,122.5],
+  [2006.0,123.8],
+  [2006.0833,122.6],
+  [2006.1667,122.7],
+  [2006.25,122.9],
+  [2006.3333,123.0],
+  [2006.4167,123.1],
+  [2006.5,122.6],
+  [2006.5833,122.3],
+  [2006.6667,123.2],
+  [2006.75,123.2],
+  [2006.8333,124.0],
+  [2006.9167,123.7],
+  [2007.0,124.6],
+  [2007.0833,125.2],
+  [2007.1667,126.1],
+  [2007.25,126.1],
+  [2007.3333,125.3],
+  [2007.4167,123.1],
+  [2007.5,122.2],
+  [2007.5833,122.1],
+  [2007.6667,123.8],
+  [2007.75,122.4],
+  [2007.8333,121.8],
+  [2007.9167,120.9],
+  [2008.0,122.6],
+  [2008.0833,123.7],
+  [2008.1667,124.6],
+  [2008.25,122.7],
+  [2008.3333,122.1],
+  [2008.4167,122.0],
+  [2008.5,121.9],
+  [2008.5833,121.4],
+  [2008.6667,123.1],
+  [2008.75,123.1],
+  [2008.8333,123.3],
+  [2008.9167,123.2],
+  [2009.0,125.2],
+  [2009.0833,128.8],
+  [2009.1667,130.7],
+  [2009.25,130.5],
+  [2009.3333,132.1],
+  [2009.4167,131.2],
+  [2009.5,129.7],
+  [2009.5833,131.0],
+  [2009.6667,133.9],
+  [2009.75,136.9],
+  [2009.8333,137.7],
+  [2009.9167,137.2],
+  [2010.0,138.3],
+  [2010.0833,138.8],
+  [2010.1667,139.2],
+  [2010.25,138.4],
+  [2010.3333,136.7],
+  [2010.4167,136.7],
+  [2010.5,136.1],
+  [2010.5833,136.2],
+  [2010.6667,137.1],
+  [2010.75,138.4],
+  [2010.8333,138.8],
+  [2010.9167,138.8],
+  [2011.0,138.7],
+  [2011.0833,139.6],
+  [2011.1667,140.1],
+  [2011.25,141.5],
+  [2011.3333,141.8],
+  [2011.4167,142.0],
+  [2011.5,139.9],
+  [2011.5833,139.9],
+  [2011.6667,140.5],
+  [2011.75,140.8],
+  [2011.8333,141.0],
+  [2011.9167,138.3],
+  [2012.0,138.3],
+  [2012.0833,139.4],
+  [2012.1667,140.0],
+  [2012.25,140.0],
+  [2012.3333,139.4],
+  [2012.4167,138.5],
+  [2012.5,137.5],
+  [2012.5833,137.4],
+  [2012.6667,138.9],
+  [2012.75,139.7],
+  [2012.8333,139.7],
+  [2012.9167,139.7],
+  [2013.0,139.5],
+  [2013.0833,139.8],
+  [2013.1667,139.8],
+  [2013.25,140.3],
+  [2013.3333,140.9],
+  [2013.4167,141.0],
+  [2013.5,140.3],
+  [2013.5833,140.0],
+  [2013.6667,140.5],
+  [2013.75,140.9],
+  [2013.8333,140.1],
+  [2013.9167,140.2],
+  [2014.0,140.5],
+  [2014.0833,140.3],
+  [2014.1667,140.3],
+  [2014.25,140.0],
+  [2014.3333,140.0],
+  [2014.4167,140.1],
+  [2014.5,139.9],
+  [2014.5833,139.3],
+  [2014.6667,140.0],
+  [2014.75,139.4],
+  [2014.8333,139.7],
+  [2014.9167,140.1],
+  [2015.0,140.0],
+  [2015.0833,140.2],
+  [2015.1667,140.4],
+  [2015.25,140.3],
+  [2015.3333,140.8],
+  [2015.4167,140.8],
+  [2015.5,139.9],
+  [2015.5833,139.6],
+  [2015.6667,139.5],
+  [2015.75,139.5],
+  [2015.8333,138.2],
+  [2015.9167,137.7],
+  [2016.0,138.4],
+  [2016.0833,138.3],
+  [2016.1667,138.2],
+  [2016.25,138.5],
+  [2016.3333,138.3],
+  [2016.4167,137.9],
+  [2016.5,136.6],
+  [2016.5833,136.5],
+  [2016.6667,137.3],
+  [2016.75,136.9],
+  [2016.8333,136.2],
+  [2016.9167,135.3],
+  [2017.0,136.6],
+  [2017.0833,135.6],
+  [2017.1667,135.4],
+  [2017.25,135.4],
+  [2017.3333,134.6],
+  [2017.4167,133.2],
+  [2017.5,132.6],
+  [2017.5833,132.5],
+  [2017.6667,133.6],
+  [2017.75,133.7],
+  [2017.8333,133.5],
+  [2017.9167,133.3],
+  [2018.0,133.6],
+  [2018.0833,132.7],
+  [2018.1667,131.3],
+  [2018.25,129.3],
+  [2018.3333,127.0],
+  [2018.4167,126.0],
+  [2018.5,125.9],
+  [2018.5833,125.7],
+  [2018.6667,126.5],
+  [2018.75,125.2],
+  [2018.8333,124.6],
+  [2018.9167,123.5],
+  [2019.0,124.4],
+  [2019.0833,124.6],
+  [2019.1667,125.0],
+  [2019.25,124.3],
+  [2019.3333,123.0],
+  [2019.4167,122.0],
+  [2019.5,122.0],
+  [2019.5833,121.3],
+  [2019.6667,121.6],
+  [2019.75,123.1],
+  [2019.8333,122.8],
+  [2019.9167,122.2],
+  [2020.0,122.1],
+  [2020.0833,122.1],
+  [2020.1667,124.3],
+  [2020.25,125.4],
+  [2020.3333,123.9],
+  [2020.4167,124.2],
+  [2020.5,124.0],
+  [2020.5833,123.8],
+  [2020.6667,124.0],
+  [2020.75,124.0],
+  [2020.8333,123.8],
+  [2020.9167,123.6],
+  [2021.0,123.5],
+  [2021.0833,123.6],
+  [2021.1667,123.3],
+  [2021.25,123.1],
+  [2021.3333,123.0],
+  [2021.4167,122.8],
+  [2021.5,122.3],
+  [2021.5833,121.6],
+  [2021.6667,121.6],
+  [2021.75,121.7],
+  [2021.8333,122.1],
+  [2021.9167,120.8],
+  [2022.0,121.5],
+  [2022.0833,121.3],
+  [2022.1667,123.0],
+  [2022.25,121.0],
+  [2022.3333,120.5],
+  [2022.4167,119.8],
+  [2022.5,117.5],
+  [2022.5833,117.0],
+  [2022.6667,117.0],
+  [2022.75,117.3],
+  [2022.8333,117.1],
+  [2022.9167,114.9],
+  [2023.0,116.4],
+  [2023.0833,115.7],
+  [2023.1667,114.4],
+  [2023.25,112.4],
+  [2023.3333,111.1],
+  [2023.4167,107.3],
+  [2023.5,103.2],
+  [2023.5833,105.7],
+  [2023.6667,106.9],
+  [2023.75,105.8],
+  [2023.8333,104.1],
+  [2023.9167,102.8],
+  [2024.0,103.9],
+  [2024.0833,103.9],
+  [2024.1667,103.6],
+  [2024.25,101.5],
+  [2024.3333,100.5],
+  [2024.4167,100.4],
+  [2024.5,100.3],
+  [2024.5833,100.0],
+  [2024.6667,99.4],
+  [2024.75,98.7],
+  [2024.8333,98.2],
+  [2024.9167,98.3],
+  [2025.0,98.5],
+  [2025.0833,99.0],
+  [2025.1667,99.2],
+  [2025.25,99.1],
+  [2025.3333,98.2],
+  [2025.4167,98.1],
+  [2025.5,97.7],
+  [2025.5833,97.3],
+  [2025.6667,97.1],
+  [2025.75,96.7],
+  [2025.8333,96.7],
+  [2025.9167,96.5],
+  [2026.0,96.6],
+  [2026.0833,96.4],
+  [2026.1667,96.0],
+  [2026.25,95.7],
+  [2026.3333,95.5]
+];
+
+const RED='#CC1A1A';
+const ann={id:'ann',afterDraw(chart){
+  const{ctx,chartArea:{left,right,top,bottom},scales:{x,y}}=chart;
+  // Phase shading — 4 correct phases
+  [
+    {x1:2002,  x2:2004,  color:'rgba(100,90,80,0.07)', label:'',                   yF:.35},
+    {x1:2004,  x2:2009,  color:'rgba(204,26,26,0.06)', label:'first appreciation', yF:.72},
+    {x1:2009,  x2:2016,  color:'rgba(100,90,80,0.07)', label:'Greek crisis',       yF:.35},
+    {x1:2016,  x2:2026.6,color:'rgba(204,26,26,0.08)', label:'rapid appreciation', yF:.72},
+  ].forEach(({x1,x2,color,label,yF})=>{
+    const px1=x.getPixelForValue(x1), px2=Math.min(x.getPixelForValue(x2),right);
+    ctx.save();
+    ctx.fillStyle=color;
+    ctx.fillRect(px1,top,px2-px1,bottom-top);
+    ctx.fillStyle='rgba(60,50,45,.45)';
+    ctx.font='italic 9.5px "JetBrains Mono",monospace';
+    ctx.textAlign='center';
+    ctx.fillText(label,(px1+px2)/2,top+(bottom-top)*yF);
+    ctx.restore();
+  });
+
+  // "lek weakness" label at top (148) before 2004
+  const xWeak = x.getPixelForValue(2003);
+  const yWeak = y.getPixelForValue(147);
+  ctx.save();
+  ctx.fillStyle = 'rgba(80,70,60,.65)';
+  ctx.font = '500 10px "JetBrains Mono",monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText('lek weakness', xWeak, yWeak);
+  ctx.restore();
+
+  // Vertical line at 2009
+  const x09=x.getPixelForValue(2009);
+  ctx.save();ctx.setLineDash([3,4]);ctx.strokeStyle='rgba(0,0,0,0.15)';ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(x09,top+2);ctx.lineTo(x09,bottom);ctx.stroke();ctx.setLineDash([]);
+  ctx.restore();
+
+  // Peak weakness — Jun 2011: 142.0
+  const xp=x.getPixelForValue(2011.4167), yp=y.getPixelForValue(142);
+  ctx.save();
+  ctx.beginPath();ctx.arc(xp,yp,3.5,0,Math.PI*2);
+  ctx.fillStyle='rgba(80,70,60,.7)';ctx.fill();
+  ctx.font='400 10px "JetBrains Mono",monospace';ctx.textAlign='left';ctx.fillStyle='rgba(80,70,60,.7)';
+  ctx.fillText('142.0 — Jun 2011 (weakest)',xp+7,yp+4);
+  ctx.restore();
+
+  // Current value — ~95.3 (Jun 2026)
+  const xl=x.getPixelForValue(2026.4167), yl=y.getPixelForValue(95.3);
+  ctx.save();
+  ctx.beginPath();ctx.arc(xl,yl,4,0,Math.PI*2);
+  ctx.fillStyle=RED;ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.stroke();
+  ctx.fillStyle=RED;ctx.font='600 11px "JetBrains Mono",monospace';
+  ctx.textAlign='right';
+  ctx.fillText('95.3 — strongest ever',xl-9,yl-11);
+  ctx.restore();
+}};
+new Chart(document.getElementById('fx'),{
+  type:'line',plugins:[ann],
+  data:{datasets:[{
+    data:monthly.map(([x,y])=>({x,y})),
+    borderColor:RED,borderWidth:2,backgroundColor:'rgba(204,26,26,0.07)',
+    fill:true,tension:.2,pointRadius:0,pointHoverRadius:4,
+    pointBackgroundColor:RED,pointBorderColor:'#fff',pointBorderWidth:2
+  }]},
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    layout:{padding:{top:30,right:16,bottom:4,left:4}},
+    plugins:{
+      legend:{display:false},
+      tooltip:{
+        backgroundColor:'#fff',titleColor:'#1a1a1a',bodyColor:'#666',
+        borderColor:'#ddd',borderWidth:1,padding:9,
+        callbacks:{
+          title(i){const x=i[0].parsed.x,yr=Math.floor(x);
+            const mn=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            return mn[Math.round((x-yr)*12)]+' '+yr;},
+          label:i=>'  '+i.parsed.y.toFixed(1)+' ALL per EUR'
+        }
+      }
+    },
+    scales:{
+      x:{type:'linear',min:2001.8,max:2026.8,
+        grid:{color:'rgba(0,0,0,0.04)'},border:{display:false},
+        ticks:{color:'#aaa',font:{size:11,family:'"JetBrains Mono",monospace'},
+          stepSize:2,callback:v=>Number.isInteger(v)&&v%2===0?v:''}},
+      y:{min:88,max:148,
+        grid:{color:'rgba(0,0,0,0.04)'},border:{display:false},
+        ticks:{color:'#aaa',font:{size:11,family:'"JetBrains Mono",monospace'},
+          stepSize:10,callback:v=>v+' L'}}
+    }
+  }
+});
+</script>
+</body>
+</html>

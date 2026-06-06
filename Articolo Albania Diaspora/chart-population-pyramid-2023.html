@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Albania Population Pyramid — Census 2023</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fff;font-family:Georgia,serif;-webkit-font-smoothing:antialiased}
+  .card{padding:1.75rem 1.75rem 1.25rem;max-width:780px}
+  .title{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:1.1rem;color:#1a1a1a;margin-bottom:.3rem}
+  .meta{font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:#999;margin-bottom:1rem}
+  .legend{display:flex;gap:20px;margin-bottom:1rem;font-size:11px;color:#666;font-family:"JetBrains Mono",monospace}
+  .leg{display:flex;align-items:center;gap:5px}
+  .wrap{position:relative;width:100%;height:820px}
+  .source{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:#bbb;margin-top:1rem;padding-top:.75rem;border-top:1px solid #f0f0f0;line-height:1.6}
+  .source a{color:#CC1A1A;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="card">
+  <p class="title">Population pyramid — Albania, Census 2023</p>
+  <p class="meta">INSTAT · Census 2023, Tab. 2 · Total resident population: 2,402,113</p>
+  <div class="legend">
+    <span class="leg"><span style="width:12px;height:12px;background:#4A7AA8;border-radius:2px;display:inline-block;"></span>Male — 1,190,448</span>
+    <span class="leg"><span style="width:12px;height:12px;background:#CC1A1A;border-radius:2px;display:inline-block;"></span>Female — 1,211,665</span>
+  </div>
+  <div class="wrap">
+    <canvas id="pyr" role="img" aria-label="Population pyramid Albania 2023. Narrow base: small young cohorts due to low birth rates and youth emigration. Widest band at 60-64 years: the communist-era baby boom generation born 1959-1963.">
+      Largest cohort 60-64: 194,360. Smallest young cohort 0-4: 111,894. Total 2,402,113.
+    </canvas>
+  </div>
+  <p class="source">
+    Source: INSTAT, <em>Albania Population and Housing Census 2023 — Main Results</em>, Table 2: Resident population by age group and sex.
+    <a href="https://www.instat.gov.al/en/publications/books/2024/albanian-population-and-housing-census-2023/" target="_blank">instat.gov.al</a>
+  </p>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const labels=['100+','95-99','90-94','85-89','80-84','75-79','70-74','65-69','60-64','55-59','50-54','45-49','40-44','35-39','30-34','25-29','20-24','15-19','10-14','5-9','0-4'];
+const male  =[-63,-395,-2960,-12349,-28162,-39710,-61681,-83488,-95584,-86338,-77413,-67920,-67868,-78453,-79385,-73069,-69354,-72011,-70906,-65138,-58201];
+const female=[301,975,4761,14094,33357,41377,64028,85403,98776,92072,86614,76040,70866,73239,74182,71138,73826,70932,65739,60252,53693];
+
+const annPlugin={id:'ann',afterDraw(chart){
+  const{ctx,chartArea:{left,right,top,bottom},scales:{x,y}}=chart;
+  const cx=x.getPixelForValue(0);
+
+  const y6064=y.getPixelForValue('60-64');
+  ctx.save();
+  ctx.strokeStyle='rgba(80,70,60,.3)';ctx.lineWidth=1;ctx.setLineDash([2,3]);
+  ctx.beginPath();ctx.moveTo(right-4,y6064);ctx.lineTo(right-65,y6064);ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle='rgba(80,70,60,.65)';
+  ctx.font='italic 10px "JetBrains Mono",monospace';
+  ctx.textAlign='right';
+  ctx.fillText('born 1959-63',right-5,y6064-6);
+  ctx.fillText('communist-era peak',right-5,y6064+12);
+  ctx.restore();
+
+  const y04=y.getPixelForValue('0-4');
+  ctx.save();
+  ctx.fillStyle='rgba(80,70,60,.6)';
+  ctx.font='italic 10px "JetBrains Mono",monospace';
+  ctx.textAlign='left';
+  ctx.fillText('narrow base: low births',cx+6,y04-12);
+  ctx.fillText('+ youth emigration',cx+6,y04+2);
+  ctx.restore();
+
+  const y2024=y.getPixelForValue('20-24');
+  ctx.save();
+  ctx.fillStyle='rgba(80,70,60,.45)';
+  ctx.font='italic 9.5px "JetBrains Mono",monospace';
+  ctx.textAlign='right';
+  ctx.fillText('emigrated generation',cx-6,y2024+4);
+  ctx.restore();
+}};
+
+new Chart(document.getElementById('pyr'),{
+  type:'bar',plugins:[annPlugin],
+  data:{
+    labels,
+    datasets:[
+      {label:'Male',  data:male,  backgroundColor:'#4A7AA8',borderRadius:2,barThickness:22},
+      {label:'Female',data:female,backgroundColor:'#CC1A1A',borderRadius:2,barThickness:22}
+    ]
+  },
+  options:{
+    indexAxis:'y',responsive:true,maintainAspectRatio:false,
+    layout:{padding:{top:8,right:155,bottom:8,left:8}},
+    plugins:{
+      legend:{display:false},
+      tooltip:{
+        backgroundColor:'#fff',titleColor:'#1a1a1a',bodyColor:'#555',
+        borderColor:'#ddd',borderWidth:1,padding:10,
+        callbacks:{
+          title:i=>i[0].label,
+          label:i=>`  ${i.dataset.label}: ${Math.abs(i.parsed.x).toLocaleString('it-IT')}`
+        }
+      }
+    },
+    scales:{
+      x:{
+        min:-110000,max:110000,
+        grid:{color:'rgba(0,0,0,0.04)'},border:{display:false},
+        ticks:{
+          color:'#aaa',font:{size:11,family:'"JetBrains Mono",monospace'},
+          callback:v=>{const a=Math.abs(v);return a===0?'0':a>=1000?(a/1000).toFixed(0)+'K':a;}
+        }
+      },
+      y:{
+        grid:{display:false},border:{display:false},
+        ticks:{color:'#444',font:{size:11.5,family:'"JetBrains Mono",monospace'},padding:5}
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Albania: Personal Remittances % of GDP, 1992–2024</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400;0,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fff;font-family:Georgia,serif;-webkit-font-smoothing:antialiased}
+  .card{padding:1.75rem 1.75rem 1.25rem;max-width:800px}
+  .title{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:1.1rem;color:#1a1a1a;margin-bottom:.3rem;line-height:1.35}
+  .meta{font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:#999;margin-bottom:1.5rem}
+  .wrap{position:relative;width:100%;height:380px}
+  .source{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:#bbb;margin-top:1rem;padding-top:.75rem;border-top:1px solid #f0f0f0;letter-spacing:.03em;line-height:1.6}
+  .source a{color:#CC1A1A;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="card">
+  <p class="title">Personal remittances received (% of GDP) — Albania, 1992–2024</p>
+  <p class="meta">World Bank · BX.TRF.PWKR.DT.GD.ZS · Updated April 2026</p>
+  <div class="wrap">
+    <canvas id="rc" role="img" aria-label="Area chart showing Albanian remittances as share of GDP. Peak of 28% in 1993, dip at 1997 pyramid collapse, long decline, stabilisation at 8 to 10 percent from 2017 onwards. 2024 value: 8.4%.">
+      1993 peak 28.0%. 1997 pyramid collapse 13.1%. 2017 to 2024 stabilisation 8 to 10%. 2024: 8.4%.
+    </canvas>
+  </div>
+  <p class="source">
+    Source: World Bank, World Development Indicators — <a href="https://data.worldbank.org/indicator/BX.TRF.PWKR.DT.GD.ZS?locations=AL" target="_blank">BX.TRF.PWKR.DT.GD.ZS</a>. Single source. Values from the World Bank dataset (updated April 2026).
+  </p>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const raw=[
+  [1992,23.28],[1993,28.01],[1994,16.33],[1995,14.71],[1996,17.03],
+  [1997,13.09],[1998,19.39],[1999,12.40],[2000,16.68],[2001,17.23],
+  [2002,16.25],[2003,15.32],[2004,15.67],[2005,15.62],[2006,14.86],
+  [2007,13.21],[2008,14.07],[2009,13.92],[2010,13.13],[2011,11.96],
+  [2012,11.59],[2013,10.02],[2014,10.69],[2015,11.25],[2016,10.89],
+  [2017,9.89],[2018,9.48],[2019,9.45],[2020,9.62],[2021,9.53],
+  [2022,9.18],[2023,8.67],[2024,8.41]
+];
+const RED='#CC1A1A';
+
+const ann={id:'ann',afterDraw(chart){
+  const{ctx,chartArea:{left,right,top,bottom},scales:{x,y}}=chart;
+
+
+
+  const x97=x.getPixelForValue(1997);
+  ctx.save();
+  ctx.setLineDash([3,4]);ctx.strokeStyle='rgba(0,0,0,0.15)';ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(x97,top);ctx.lineTo(x97,bottom);ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle='rgba(80,70,60,.6)';
+  ctx.font='400 9.5px "JetBrains Mono",monospace';
+  ctx.textAlign='center';
+  ctx.fillText('1997',x97,top+13);
+  ctx.fillText('collapse',x97,top+25);
+  ctx.restore();
+
+  const x93=x.getPixelForValue(1993),y93=y.getPixelForValue(28.01);
+  ctx.save();
+  ctx.beginPath();ctx.arc(x93,y93,4.5,0,Math.PI*2);
+  ctx.fillStyle=RED;ctx.fill();
+  ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.stroke();
+  ctx.fillStyle=RED;
+  ctx.font='600 11.5px "JetBrains Mono",monospace';
+  ctx.textAlign='left';
+  ctx.fillText('28.0%  peak (1993)',x93+10,y93+4);
+  ctx.restore();
+
+  const x24=x.getPixelForValue(2024),y24=y.getPixelForValue(8.41);
+  ctx.save();
+  ctx.beginPath();ctx.arc(x24,y24,4,0,Math.PI*2);
+  ctx.fillStyle=RED;ctx.fill();
+  ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.stroke();
+  ctx.fillStyle='rgba(80,70,60,.65)';
+  ctx.font='400 10px "JetBrains Mono",monospace';
+  ctx.textAlign='right';
+  ctx.fillText('8,4%',x24-10,y24-10);
+  ctx.restore();
+
+  const gradient=ctx.createLinearGradient(0,top,0,bottom);
+  gradient.addColorStop(0,'rgba(204,26,26,0.22)');
+  gradient.addColorStop(1,'rgba(204,26,26,0.01)');
+  chart.data.datasets[0].backgroundColor=gradient;
+  chart.update('none');
+}};
+
+new Chart(document.getElementById('rc'),{
+  type:'line',plugins:[ann],
+  data:{datasets:[{
+    data:raw.map(([x,y])=>({x,y})),
+    borderColor:RED,borderWidth:2.5,
+    backgroundColor:'rgba(204,26,26,0.12)',
+    fill:true,tension:.3,
+    pointRadius:0,pointHoverRadius:5,
+    pointBackgroundColor:RED,pointBorderColor:'#fff',pointBorderWidth:2
+  }]},
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    layout:{padding:{top:36,right:18,bottom:4,left:4}},
+    plugins:{
+      legend:{display:false},
+      tooltip:{
+        backgroundColor:'#fff',titleColor:'#1a1a1a',bodyColor:'#666',
+        borderColor:'#e0e0e0',borderWidth:1,padding:10,
+        callbacks:{
+          title:i=>i[0].parsed.x.toString(),
+          label:i=>'  '+i.parsed.y.toFixed(1)+'% of GDP'
+        }
+      }
+    },
+    scales:{
+      x:{type:'linear',min:1991,max:2025,
+        grid:{color:'rgba(0,0,0,0.04)'},border:{display:false},
+        ticks:{color:'#aaa',font:{size:11,family:'"JetBrains Mono",monospace'},
+          stepSize:4,callback:v=>Number.isInteger(v)?v:''}},
+      y:{min:0,max:32,
+        grid:{color:'rgba(0,0,0,0.04)'},border:{display:false},
+        ticks:{color:'#aaa',font:{size:11,family:'"JetBrains Mono",monospace'},
+          stepSize:8,callback:v=>v+'%'}}
+    }
+  }
+});
+</script>
+</body>
+</html>

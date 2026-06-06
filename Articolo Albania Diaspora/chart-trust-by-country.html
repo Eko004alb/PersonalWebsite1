@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trust in others by country, 2022</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #F7F2EA;
+    --ink: #1A1A1A;
+    --ink-muted: #5E574E;
+    --accent: #CC1A1A;
+    --rule: #D9CFC2;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    padding: 2rem 1.5rem 2.5rem;
+    max-width: 720px;
+    margin: 0 auto;
+    font-family: Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .chart-question {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+  }
+  .chart-meta {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1.25rem;
+  }
+  .chart-wrapper {
+    position: relative;
+    width: 100%;
+    height: 490px;
+  }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 1rem;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend-swatch {
+    width: 11px;
+    height: 11px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .chart-source {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.68rem;
+    color: var(--ink-muted);
+    margin-top: 1.25rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--rule);
+    letter-spacing: 0.03em;
+  }
+</style>
+</head>
+<body>
+
+<p class="chart-question">"Generally speaking, would you say that most people can be trusted?"</p>
+<p class="chart-meta">Share answering yes &middot; 2022 &middot; selection of countries</p>
+
+<div class="chart-wrapper">
+  <canvas id="trustChart"
+    role="img"
+    aria-label="Horizontal bar chart. Denmark is highest at 73.9%. Albania is lowest in this selection at 2.8%. Italy 26.6%, Greece 8.4%.">
+    Denmark 73.9%, Norway 72.1%, Finland 68.4%, Sweden 62.8%, Switzerland 58.5%, Netherlands 57.0%, Italy 26.6%, Greece 8.4%, Albania 2.8%.
+  </canvas>
+</div>
+
+<div class="legend">
+  <span class="legend-item"><span class="legend-swatch" style="background:#C4BEB4;"></span>Highest trust countries</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#6B8A6F;"></span>Italy</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#6080A8;"></span>Greece</span>
+  <span class="legend-item"><span class="legend-swatch" style="background:#CC1A1A;"></span>Albania</span>
+</div>
+
+<p class="chart-source">Source: World Values Survey, via Our World in Data (self-reported-trust-attitudes dataset) &mdash; Barjaba, J. (2018) notes that Albania's decline from 24.3% in 1998 to 2.8% in 2022 tracks directly with the institutional collapse of the 1997 pyramid scheme crisis.</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const labels = ['Denmark','Norway','Finland','Sweden','Switzerland','Netherlands','Italy','Greece','Albania'];
+const values = [73.9, 72.1, 68.4, 62.8, 58.5, 57.0, 26.6, 8.4, 2.8];
+
+const T   = '#C4BEB4';
+const TB  = '#9E9890';
+const bgColors  = [T,T,T,T,T,T, '#6B8A6F', '#6080A8', '#CC1A1A'];
+const brdColors = [TB,TB,TB,TB,TB,TB, '#486254', '#3A5A80', '#8A1010'];
+
+const textColor = '#2A2520';
+const gridColor = 'rgba(0,0,0,0.06)';
+
+const labelsPlugin = {
+  id: 'inlineLabels',
+  afterDatasetsDraw(chart) {
+    const { ctx } = chart;
+    const meta = chart.getDatasetMeta(0);
+    meta.data.forEach((bar, i) => {
+      const isAlb = labels[i] === 'Albania';
+      ctx.save();
+      ctx.fillStyle = isAlb ? '#CC1A1A' : '#5E574E';
+      ctx.font = (isAlb ? '600 ' : '400 ') + '11px "JetBrains Mono", ui-monospace, monospace';
+      ctx.textAlign = 'left';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(values[i].toFixed(1) + '%', bar.x + 7, bar.y);
+      ctx.restore();
+    });
+  }
+};
+
+new Chart(document.getElementById('trustChart'), {
+  type: 'bar',
+  plugins: [labelsPlugin],
+  data: {
+    labels,
+    datasets: [{
+      data: values,
+      backgroundColor: bgColors,
+      borderColor: brdColors,
+      borderWidth: 1,
+      borderRadius: 3,
+      barThickness: 34,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: { padding: { right: 56, top: 4, bottom: 4 } },
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: '#F7F2EA',
+        titleColor: '#1A1A1A',
+        bodyColor: '#5E574E',
+        borderColor: '#D9CFC2',
+        borderWidth: 1,
+        callbacks: { label: (c) => '  ' + c.raw.toFixed(1) + '%' }
+      }
+    },
+    scales: {
+      x: {
+        min: 0,
+        max: 86,
+        grid: { color: gridColor },
+        border: { display: false },
+        ticks: {
+          color: textColor,
+          font: { size: 11, family: '"JetBrains Mono", ui-monospace, monospace' },
+          callback: (v) => v + '%',
+          maxTicksLimit: 7,
+        }
+      },
+      y: {
+        grid: { display: false },
+        border: { display: false },
+        ticks: {
+          color: (ctx) => labels[ctx.index] === 'Albania' ? '#CC1A1A' : '#2A2520',
+          font: (ctx) => ({
+            size: 13,
+            weight: labels[ctx.index] === 'Albania' ? '600' : '400',
+            family: '"Cormorant Garamond", Georgia, "Times New Roman", serif',
+          }),
+          padding: 8,
+        }
+      }
+    }
+  }
+});
+</script>
+</body>
+</html>

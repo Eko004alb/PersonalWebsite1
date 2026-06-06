@@ -1114,6 +1114,43 @@ body::before {
   font-weight: 300;
 }
 
+.blog-preview {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.blog-preview-link {
+  display: grid;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity var(--transition);
+}
+
+.blog-preview-link:hover { opacity: 0.65; }
+
+.blog-preview-meta {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.blog-preview-title {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.blog-preview-excerpt {
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.65;
+  max-width: 640px;
+}
+
 /* ---- CONTACT ---- */
 #contact {
   border-top: 1px solid var(--border);

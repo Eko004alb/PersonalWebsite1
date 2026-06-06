@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Albanian Returnees by Age Group, 2009-2013 — INSTAT/IOM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#fff;font-family:Georgia,serif;-webkit-font-smoothing:antialiased}
+  .card{padding:1.75rem 1.75rem 1.25rem;max-width:780px}
+  .title{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:1.15rem;color:#1a1a1a;margin-bottom:.3rem;line-height:1.35}
+  .meta{font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.07em;text-transform:uppercase;color:#999;margin-bottom:1.5rem}
+  .wrap{position:relative;width:100%;height:280px}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:1.25rem;padding-top:1rem;border-top:0.5px solid #eee}
+  .stat{padding:.5rem .7rem}
+  .stat-num{display:block;font-family:"JetBrains Mono",monospace;font-size:1.4rem;color:#CC1A1A;font-weight:500;line-height:1.1;margin-bottom:4px}
+  .stat-label{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:#666;line-height:1.45}
+  .source{font-family:"JetBrains Mono",monospace;font-size:.67rem;color:#aaa;margin-top:1.25rem;padding-top:.75rem;border-top:1px solid #f0f0f0;line-height:1.7}
+  .source a{color:#CC1A1A;text-decoration:none}
+  .source em{font-style:italic;color:#888}
+</style>
+</head>
+<body>
+<div class="card">
+  <p class="title">Albanian returnees were working-age adults — not retirees, 2009–2013</p>
+  <p class="meta">INSTAT &amp; IOM, Return Migration and Reintegration in Albania (2013/2014) &nbsp;&middot;&nbsp; 133,544 returnees aged 18+</p>
+  
+  <div class="wrap">
+    <canvas id="ret" role="img" aria-label="Bar chart showing age distribution of Albanian returnees 2009-2013. 61 percent aged 18-40 with modal group 25-29. 33 percent aged 41-59. Only 6 percent aged 60 or above, contradicting the assumption that return migration is dominated by retirees.">
+      18-40 yrs: 61% (modal 25-29). 41-59 yrs: 33%. 60+ yrs: 6%.
+    </canvas>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num">73%</span>
+      <span class="stat-label">male</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">70.8%</span>
+      <span class="stat-label">returning from Greece</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">63.2%</span>
+      <span class="stat-label">returned due to job loss</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">38.3</span>
+      <span class="stat-label">average age at return</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">6 yrs</span>
+      <span class="stat-label">average time spent abroad</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">49%</span>
+      <span class="stat-label">unemployed after return</span>
+    </div>
+  </div>
+
+  <p class="source">
+    Source: INSTAT &amp; IOM, <em>Return Migration and Reintegration in Albania 2013</em> (Tirana: INSTAT/IOM, 2014). 
+    All figures verified against the official summary in: Nesturi, M. (2014), <em>Return Migration and Reintegration in Albania</em>, UNECE Working Paper 22, Conference of European Statisticians, Chișinău, 10–12 September 2014. 
+    Available: <a href="https://www.unece.org/fileadmin/DAM/stats/documents/ece/ces/ge.10/2014/mtg1/WP_22_Albania.pdf" target="_blank">unece.org</a> 
+    &nbsp;·&nbsp; Also cited in Barjaba, J. (2018), <em>Transnational Entrepreneurship Among Albanian Migrants and Returnees</em>, PhD thesis, University of Sussex, Figure 3.6.
+    <br/><br/>
+    Note: The chart uses only the three verified aggregate percentages published in the source documents. The exact distribution by five-year age groups is reported in Figure 3 of the original INSTAT/IOM publication (Tirana, 2014, p. 29) but is not reproduced here. Modal group (25–29) confirmed in UNECE WP22 (2014) and d-nb.info bibliographic record.
+  </p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const RED='#CC1A1A';
+
+const ann={id:'ann',afterDraw(chart){
+  const{ctx,chartArea:{left,right,top,bottom},scales:{x,y}}=chart;
+  
+  // "modal 25-29" callout on the 18-40 bar
+  const yBar=y.getPixelForValue('18–40');
+  const xLabel=x.getPixelForValue(61);
+  ctx.save();
+  ctx.fillStyle='#fff';
+  ctx.font='600 11px "JetBrains Mono",monospace';
+  ctx.textAlign='left';
+  ctx.fillText('  modal: 25–29',xLabel+6,yBar+4);
+  ctx.restore();
+
+  // Right-side value labels for the smaller bars
+  const yBar2=y.getPixelForValue('41–59');
+  const xLabel2=x.getPixelForValue(33);
+  ctx.save();
+  ctx.fillStyle='rgba(80,70,60,.7)';
+  ctx.font='600 11px "JetBrains Mono",monospace';
+  ctx.textAlign='left';
+  ctx.fillText('33%',xLabel2+8,yBar2+4);
+  ctx.restore();
+
+  const yBar3=y.getPixelForValue('60+');
+  const xLabel3=x.getPixelForValue(6);
+  ctx.save();
+  ctx.fillStyle=RED;
+  ctx.font='600 11px "JetBrains Mono",monospace';
+  ctx.textAlign='left';
+  ctx.fillText('6% — not retirees',xLabel3+8,yBar3+4);
+  ctx.restore();
+
+  // Big 61% inside the top bar
+  const xBig=x.getPixelForValue(0)+10;
+  ctx.save();
+  ctx.fillStyle='#fff';
+  ctx.font='600 17px "JetBrains Mono",monospace';
+  ctx.textAlign='left';
+  ctx.fillText('61%',xBig,yBar+5);
+  ctx.restore();
+}};
+
+new Chart(document.getElementById('ret'),{
+  type:'bar',plugins:[ann],
+  data:{
+    labels:['18–40','41–59','60+'],
+    datasets:[{
+      data:[61,33,6],
+      backgroundColor:[
+        'rgba(204,26,26,0.85)',
+        'rgba(204,26,26,0.45)',
+        'rgba(204,26,26,0.2)'
+      ],
+      borderWidth:0,
+      borderRadius:3,
+      barThickness:54
+    }]
+  },
+  options:{
+    indexAxis:'y',
+    responsive:true,
+    maintainAspectRatio:false,
+    layout:{padding:{top:8,right:160,bottom:8,left:8}},
+    plugins:{
+      legend:{display:false},
+      tooltip:{
+        backgroundColor:'#fff',titleColor:'#1a1a1a',bodyColor:'#555',
+        borderColor:'#ddd',borderWidth:1,padding:10,
+        callbacks:{
+          title:i=>i[0].label+' years',
+          label:i=>'  '+i.parsed.x+'% of returnees'
+        }
+      }
+    },
+    scales:{
+      x:{min:0,max:70,grid:{color:'rgba(0,0,0,0.04)'},border:{display:false},
+        ticks:{color:'#aaa',font:{size:11,family:'"JetBrains Mono",monospace'},
+          callback:v=>v+'%',stepSize:20}},
+      y:{grid:{display:false},border:{display:false},
+        ticks:{color:'#333',font:{size:13,family:'"JetBrains Mono",monospace',weight:'500'},padding:6}}
+    }
+  }
+});
+</script>
+</body>
+</html>
