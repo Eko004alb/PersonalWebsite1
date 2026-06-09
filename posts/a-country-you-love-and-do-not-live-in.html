@@ -625,17 +625,10 @@
   <li>Today, the Albanian origin population abroad is generally estimated between 1.2 and 1.6 million, against a resident population that has fallen below 2.8 million according to the 2023 census.</li>
 </ul>
 
-<!-- ============================================================
-     FIGURE 2 — Population decline chart
-     PRIORITY: HIGH. This chart is dramatic and supports the argument.
-     DATA: INSTAT census series 1990 to 2023, plus World Bank diaspora estimates.
-     TOOL: Datawrapper (easiest), Flourish, or matplotlib.
-     CHART TYPE: Line chart with two series (resident population, diaspora stock estimate).
-     ============================================================ -->
 <figure>
   <div class="chart-embed">
-    <p class="chart-question">Albanians at home vs. Albanians abroad, 1990 to 2023</p>
-    <p class="chart-meta">Millions of people &middot; Sources: World Bank SP.POP.TOTL; INSTAT censuses 2001, 2011, 2023; King (2003); Barjaba (2000); WB Mobility Report (2024)</p>
+    <p class="chart-question">Albanians at home vs. Albanians abroad, 1990 to 2026</p>
+    <p class="chart-meta">Millions of people &middot; Sources: World Bank SP.POP.TOTL; INSTAT censuses 2001, 2011, 2023; INSTAT annual estimates 2025, 2026; King (2003); Barjaba (2000); WB Mobility Report (2024)</p>
     <div class="chart-wrapper chart-wrapper--pop">
       <canvas id="popChart"
         role="img"
@@ -648,7 +641,7 @@
       <span class="chart-legend-item"><span class="chart-legend-swatch" style="background:#CC1A1A;"></span>Albanians abroad (est.)</span>
       <span class="chart-legend-item"><span class="chart-legend-swatch" style="background:rgba(180,165,145,.35);"></span>Approximate gap</span>
     </div>
-    <p class="chart-source-inline">Diaspora line connects known data-anchored estimates only (filled circles: 1990, 1993, 1999, 2010, 2019). Values between are linear interpolations — not measured data. The 2023 census revised resident population downward from the Jan 2023 annual estimate (~2.78M) to the census count of 2.40M, reflecting methodology change.</p>
+    <p class="chart-source-inline">Diaspora line connects known data-anchored estimates only (filled circles: 1990, 1993, 1999, 2010, 2019). Values between are linear interpolations — not measured data. The 2023 census revised resident population downward from the Jan 2023 annual estimate (~2.78M) to the census count of 2.40M, reflecting methodology change. 2025 and 2026 data points: INSTAT official annual estimates — 2,363,314 (1 Jan 2025, published 12 Jun 2025) and ~2,335,000 (1 Jan 2026, published Jun 2026). Net emigration: −28,836 in 2024, −28,531 in 2025.</p>
   </div>
   <figcaption><span class="fig-label">Chart 1.</span> Resident population (solid line) declining as diaspora stock (dashed) grows.</figcaption>
 </figure>
@@ -1069,6 +1062,196 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
   <script>
     (function () {
+      const popCanvas = document.getElementById('popChart');
+      if (!popCanvas || typeof Chart === 'undefined') return;
+
+      const fontFamily = "'Inter', system-ui, -apple-system, sans-serif";
+      const resPop = [
+        [1990,3.287],[1991,3.291],[1992,3.196],[1993,3.112],[1994,3.112],
+        [1995,3.111],[1996,3.136],[1997,3.124],[1998,3.108],[1999,3.101],
+        [2000,3.089],[2001,3.060],[2002,3.051],[2003,3.040],[2004,3.027],
+        [2005,3.011],[2006,2.993],[2007,2.970],[2008,2.947],[2009,2.928],
+        [2010,2.902],[2011,2.832],[2012,2.900],[2013,2.896],[2014,2.889],
+        [2015,2.881],[2016,2.877],[2017,2.873],[2018,2.866],[2019,2.854],
+        [2020,2.842],[2021,2.812],[2022,2.778],[2023,2.402],
+        [2024,2.391],[2025,2.363],[2026,2.335]
+      ];
+      const diaspora = [
+        [1990,.02],[1991,.11],[1992,.21],[1993,.30],
+        [1994,.38],[1995,.47],[1996,.55],[1997,.63],
+        [1998,.72],[1999,.80],[2000,.83],[2001,.85],
+        [2002,.88],[2003,.91],[2004,.94],[2005,.96],
+        [2006,.99],[2007,1.02],[2008,1.05],[2009,1.07],
+        [2010,1.10],[2011,1.11],[2012,1.12],[2013,1.13],
+        [2014,1.14],[2015,1.16],[2016,1.17],[2017,1.18],
+        [2018,1.19],[2019,1.20],[2020,1.21],[2021,1.22],
+        [2022,1.23],[2023,1.24],[2024,1.25],[2025,1.25],[2026,1.26]
+      ];
+      const known = new Set([1990, 1993, 1999, 2010, 2019]);
+      const dR = diaspora.map(([y]) => known.has(y) ? 6 : 0);
+      const dC = diaspora.map(([y]) => known.has(y) ? '#CC1A1A' : 'transparent');
+      const dB = diaspora.map(([y]) => known.has(y) ? '#fff' : 'transparent');
+
+      const popAnn = {
+        id: 'popAnn',
+        afterDraw(chart) {
+          const { ctx, chartArea: { top, bottom }, scales: { x, y } } = chart;
+          [{ yr: 1991, lbl: ['borders', 'open'], off: 8 }, { yr: 1997, lbl: ['pyramid', 'collapse'], off: 8 }].forEach(({ yr, lbl, off }) => {
+            const px = x.getPixelForValue(yr);
+            ctx.save();
+            ctx.setLineDash([3, 4]);
+            ctx.strokeStyle = 'rgba(0,0,0,.2)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(px, top + 2);
+            ctx.lineTo(px, bottom);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.fillStyle = 'rgba(80,70,60,.7)';
+            ctx.font = '400 9.5px ' + fontFamily;
+            ctx.textAlign = 'center';
+            lbl.forEach((l, i) => ctx.fillText(l, px + off, top + 12 + i * 12));
+            ctx.restore();
+          });
+          const x23 = x.getPixelForValue(2023);
+          const y23 = y.getPixelForValue(2.402);
+          ctx.save();
+          ctx.fillStyle = 'rgba(80,70,60,.7)';
+          ctx.font = '400 9.5px ' + fontFamily;
+          ctx.textAlign = 'right';
+          ctx.fillText('2023 census', x23 - 5, y23 - 20);
+          ctx.fillText('2.40M ↓', x23 - 5, y23 - 9);
+          ctx.restore();
+
+          const x25 = x.getPixelForValue(2025);
+          const y25 = y.getPixelForValue(2.363);
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(x25, y25, 4, 0, Math.PI * 2);
+          ctx.fillStyle = '#1A1A1A';
+          ctx.fill();
+          ctx.strokeStyle = '#fff';
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+          ctx.fillStyle = 'rgba(80,70,60,.7)';
+          ctx.font = '400 9.5px ' + fontFamily;
+          ctx.textAlign = 'right';
+          ctx.fillText('2.36M', x25 - 7, y25 - 7);
+          ctx.restore();
+
+          const x26 = x.getPixelForValue(2026);
+          const y26 = y.getPixelForValue(2.335);
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(x26, y26, 4, 0, Math.PI * 2);
+          ctx.fillStyle = '#CC1A1A';
+          ctx.fill();
+          ctx.strokeStyle = '#fff';
+          ctx.lineWidth = 1.5;
+          ctx.stroke();
+          ctx.fillStyle = '#CC1A1A';
+          ctx.font = '600 9.5px ' + fontFamily;
+          ctx.textAlign = 'left';
+          ctx.fillText('2.33M', x26 + 7, y26 + 4);
+          ctx.fillText('Jan 2026', x26 + 7, y26 + 15);
+          ctx.restore();
+
+          ctx.save();
+          ctx.fillStyle = 'rgba(120,100,80,.4)';
+          ctx.font = 'italic 10.5px Georgia, serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('approximate gap', x.getPixelForValue(2014), y.getPixelForValue(2.0));
+          ctx.restore();
+        }
+      };
+
+      new Chart(popCanvas, {
+        type: 'line',
+        plugins: [popAnn],
+        data: {
+          datasets: [
+            {
+              label: 'Resident population',
+              data: resPop.map(([x, y]) => ({ x, y })),
+              borderColor: '#1A1A1A',
+              backgroundColor: 'transparent',
+              borderWidth: 2.5,
+              fill: false,
+              pointRadius: 0,
+              pointHoverRadius: 4,
+              tension: 0.25,
+              order: 1
+            },
+            {
+              label: 'Albanians abroad (est.)',
+              data: diaspora.map(([x, y]) => ({ x, y })),
+              borderColor: '#CC1A1A',
+              borderDash: [5, 4],
+              backgroundColor: 'rgba(180,165,145,.18)',
+              borderWidth: 2,
+              fill: '-1',
+              pointRadius: dR,
+              pointHoverRadius: 7,
+              pointBackgroundColor: dC,
+              pointBorderColor: dB,
+              pointBorderWidth: 2,
+              tension: 0.25,
+              order: 2
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          layout: { padding: { top: 40, right: 24, bottom: 4, left: 4 } },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#fff',
+              titleColor: '#1A1A1A',
+              bodyColor: '#555',
+              borderColor: '#ddd',
+              borderWidth: 1,
+              padding: 10,
+              callbacks: {
+                title: (i) => i[0].parsed.x.toString(),
+                label: (i) => '  ' + (i.datasetIndex === 0 ? 'Resident' : 'Abroad (est.)') + ': ' + i.parsed.y.toFixed(2) + 'M'
+              }
+            }
+          },
+          scales: {
+            x: {
+              type: 'linear',
+              min: 1989,
+              max: 2027,
+              grid: { color: 'rgba(0,0,0,.05)' },
+              border: { display: false },
+              ticks: {
+                color: '#888',
+                font: { size: 11, family: fontFamily },
+                stepSize: 5,
+                callback: (v) => Number.isInteger(v) && v % 5 === 0 ? v : ''
+              }
+            },
+            y: {
+              min: 0,
+              max: 3.6,
+              grid: { color: 'rgba(0,0,0,.05)' },
+              border: { display: false },
+              ticks: {
+                color: '#888',
+                font: { size: 11, family: fontFamily },
+                stepSize: 0.5,
+                callback: (v) => v > 0 ? v.toFixed(1) + 'M' : ''
+              }
+            }
+          }
+        }
+      });
+    })();
+  </script>
+  <script>
+    (function () {
       const inflationCanvas = document.getElementById('inflationChart');
       if (!inflationCanvas || typeof Chart === 'undefined') return;
 
@@ -1215,155 +1398,6 @@
                 font: { size: 10, family: fontFamily },
                 callback: (v) => v + '%',
                 stepSize: 5
-              }
-            }
-          }
-        }
-      });
-    })();
-  </script>
-  <script>
-    (function () {
-      const popCanvas = document.getElementById('popChart');
-      if (!popCanvas || typeof Chart === 'undefined') return;
-
-      const fontFamily = "'Inter', system-ui, -apple-system, sans-serif";
-      const resPop = [
-        [1990,3.287],[1991,3.291],[1992,3.196],[1993,3.112],[1994,3.112],
-        [1995,3.111],[1996,3.136],[1997,3.124],[1998,3.108],[1999,3.101],
-        [2000,3.089],[2001,3.060],[2002,3.051],[2003,3.040],[2004,3.027],
-        [2005,3.011],[2006,2.993],[2007,2.970],[2008,2.947],[2009,2.928],
-        [2010,2.902],[2011,2.832],[2012,2.900],[2013,2.896],[2014,2.889],
-        [2015,2.881],[2016,2.877],[2017,2.873],[2018,2.866],[2019,2.854],
-        [2020,2.842],[2021,2.812],[2022,2.778],[2023,2.402]
-      ];
-      const diaspora = [
-        [1990,.02],[1991,.11],[1992,.21],[1993,.30],
-        [1994,.38],[1995,.47],[1996,.55],[1997,.63],
-        [1998,.72],[1999,.80],[2000,.83],[2001,.85],
-        [2002,.88],[2003,.91],[2004,.94],[2005,.96],
-        [2006,.99],[2007,1.02],[2008,1.05],[2009,1.07],
-        [2010,1.10],[2011,1.11],[2012,1.12],[2013,1.13],
-        [2014,1.14],[2015,1.16],[2016,1.17],[2017,1.18],
-        [2018,1.19],[2019,1.20],[2020,1.21],[2021,1.22],
-        [2022,1.23],[2023,1.24]
-      ];
-      const known = new Set([1990, 1993, 1999, 2010, 2019]);
-      const dR = diaspora.map(([y]) => known.has(y) ? 6 : 0);
-      const dC = diaspora.map(([y]) => known.has(y) ? '#CC1A1A' : 'transparent');
-      const dB = diaspora.map(([y]) => known.has(y) ? '#fff' : 'transparent');
-
-      const popAnn = {
-        id: 'popAnn',
-        afterDraw(chart) {
-          const { ctx, chartArea: { top, bottom }, scales: { x, y } } = chart;
-          [{ yr: 1991, lbl: ['borders', 'open'], off: 8 }, { yr: 1997, lbl: ['pyramid', 'collapse'], off: 8 }].forEach(({ yr, lbl, off }) => {
-            const px = x.getPixelForValue(yr);
-            ctx.save();
-            ctx.setLineDash([3, 4]);
-            ctx.strokeStyle = 'rgba(0,0,0,.2)';
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(px, top + 2);
-            ctx.lineTo(px, bottom);
-            ctx.stroke();
-            ctx.setLineDash([]);
-            ctx.fillStyle = 'rgba(80,70,60,.7)';
-            ctx.font = '400 9.5px ' + fontFamily;
-            ctx.textAlign = 'center';
-            lbl.forEach((l, i) => ctx.fillText(l, px + off, top + 12 + i * 12));
-            ctx.restore();
-          });
-          const x23 = x.getPixelForValue(2023);
-          const y23 = y.getPixelForValue(2.402);
-          ctx.save();
-          ctx.fillStyle = 'rgba(80,70,60,.7)';
-          ctx.font = '400 9.5px ' + fontFamily;
-          ctx.textAlign = 'right';
-          ctx.fillText('2023 census', x23 - 5, y23 - 20);
-          ctx.fillText('2.40M', x23 - 5, y23 - 9);
-          ctx.restore();
-        }
-      };
-
-      new Chart(popCanvas, {
-        type: 'line',
-        plugins: [popAnn],
-        data: {
-          datasets: [
-            {
-              label: 'Resident population',
-              data: resPop.map(([x, y]) => ({ x, y })),
-              borderColor: '#1A1A1A',
-              backgroundColor: 'transparent',
-              borderWidth: 2.5,
-              fill: false,
-              pointRadius: 0,
-              pointHoverRadius: 4,
-              tension: 0.25,
-              order: 1
-            },
-            {
-              label: 'Albanians abroad (est.)',
-              data: diaspora.map(([x, y]) => ({ x, y })),
-              borderColor: '#CC1A1A',
-              borderDash: [5, 4],
-              backgroundColor: 'rgba(180,165,145,.18)',
-              borderWidth: 2,
-              fill: '-1',
-              pointRadius: dR,
-              pointHoverRadius: 7,
-              pointBackgroundColor: dC,
-              pointBorderColor: dB,
-              pointBorderWidth: 2,
-              tension: 0.25,
-              order: 2
-            }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          layout: { padding: { top: 40, right: 24, bottom: 4, left: 4 } },
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              backgroundColor: '#fff',
-              titleColor: '#1A1A1A',
-              bodyColor: '#555',
-              borderColor: '#ddd',
-              borderWidth: 1,
-              padding: 10,
-              callbacks: {
-                title: (i) => i[0].parsed.x.toString(),
-                label: (i) => '  ' + (i.datasetIndex === 0 ? 'Resident' : 'Abroad (est.)') + ': ' + i.parsed.y.toFixed(2) + 'M'
-              }
-            }
-          },
-          scales: {
-            x: {
-              type: 'linear',
-              min: 1989,
-              max: 2025,
-              grid: { color: 'rgba(0,0,0,.05)' },
-              border: { display: false },
-              ticks: {
-                color: '#888',
-                font: { size: 11, family: fontFamily },
-                stepSize: 5,
-                callback: (v) => Number.isInteger(v) && v % 5 === 0 ? v : ''
-              }
-            },
-            y: {
-              min: 0,
-              max: 3.6,
-              grid: { color: 'rgba(0,0,0,.05)' },
-              border: { display: false },
-              ticks: {
-                color: '#888',
-                font: { size: 11, family: fontFamily },
-                stepSize: 0.5,
-                callback: (v) => v > 0 ? v.toFixed(1) + 'M' : ''
               }
             }
           }
