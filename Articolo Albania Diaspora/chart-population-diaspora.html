@@ -91,8 +91,8 @@ const ann={id:'ann',afterDraw(chart){
   ctx.beginPath();ctx.arc(x26,y26,4,0,Math.PI*2);
   ctx.fillStyle='#CC1A1A';ctx.fill();ctx.strokeStyle='#fff';ctx.lineWidth=1.5;ctx.stroke();
   ctx.fillStyle='#CC1A1A';ctx.font='600 9.5px "JetBrains Mono",monospace';ctx.textAlign='left';
-  ctx.fillText('2.33M',x26+7,y26+4);
-  ctx.fillText('Jan 2026',x26+7,y26+15);ctx.restore();
+  ctx.fillText('2.33M',x26+7,y26-8);
+  ctx.fillText('2025',x26+7,y26+3);ctx.restore();
 
   ctx.save();ctx.fillStyle='rgba(120,100,80,.4)';ctx.font='italic 10.5px Georgia,serif';ctx.textAlign='center';
   ctx.fillText('approximate gap',x.getPixelForValue(2014),y.getPixelForValue(2.0));ctx.restore();
@@ -110,7 +110,7 @@ new Chart(document.getElementById('popChart'),{
      pointBackgroundColor:dC,pointBorderColor:dB,pointBorderWidth:2,tension:.25,order:2}
   ]},
   options:{responsive:true,maintainAspectRatio:false,
-    layout:{padding:{top:40,right:24,bottom:4,left:4}},
+    layout:{padding:{top:40,right:52,bottom:4,left:4}},
     plugins:{legend:{display:false},tooltip:{
       backgroundColor:'#fff',titleColor:'#1A1A1A',bodyColor:'#555',borderColor:'#ddd',borderWidth:1,padding:10,
       callbacks:{title:i=>i[0].parsed.x.toString(),label:i=>`  ${['Resident','Abroad (est.)'][i.datasetIndex]||''}: ${i.parsed.y.toFixed(2)}M`}
