@@ -83,26 +83,53 @@ window.PROJECTS = [
     },
   },
   {
-    slug: "project-03",
+    slug: "canva-thesis",
     number: "03",
-    title: "Coming Soon",
+    title:
+      "Da startup australiana a unicorno globale: come Canva ha fatto del suo modello di business un vantaggio competitivo",
     shortDescription:
-      "Reserved space for your next project. Add title, description, links, and media when ready.",
+      "Un'analisi del caso Canva attraverso i framework dell'Economia e Gestione delle Imprese (Abell, Porter, RBV/VRIO, dynamic capabilities) per valutare se il suo vantaggio competitivo regga alla pressione dell'IA generativa.",
     overview:
-      "This template supports long-form writeups and image galleries. Add content to this record to activate the full page.",
+      "Tesi di laurea dedicata al caso Canva, con focus su vantaggio competitivo, modelli SaaS e impatto della generative AI nel lungo periodo.",
     sections: [
       {
-        heading: "What To Add",
+        heading: "Context",
         body:
-          "Document the challenge, constraints, design decisions, experiments, and final outcomes for each project.",
+          "Le imprese SaaS \"unicorno\" sfidano i modelli di analisi strategica tradizionali. Canva, piattaforma australiana di design fondata nel 2013, e un caso di studio particolarmente rilevante: crescita rapida, diffusione globale e, a differenza di molti pari, redditivita fin dalle fasi iniziali.",
+      },
+      {
+        heading: "Method",
+        body:
+          "Approccio qualitativo e compilativo basato su revisione della letteratura accademica e fonti secondarie verificate. Applicazione sistematica di framework classici (modello di Abell, cinque forze di Porter, catena del valore, RBV/VRIO) integrati con concetti propri dei modelli digitali (SaaS, freemium, network effects, PLG). Il quarto capitolo adotta una struttura tesi/antitesi/sintesi per valutare la tenuta del vantaggio competitivo di fronte alla gen AI.",
+      },
+      {
+        heading: "Key Findings",
+        body:
+          "Il vantaggio competitivo di Canva non risiede in singole risorse isolate ma nella complementarita tra risorse intangibili (base utenti, libreria di asset, brand, dati, cultura organizzativa). L'IA generativa, di per se, non e una risorsa rara o inimitabile (e \"table stakes\"), ma acquista valore competitivo solo se innestata su asset distintivi preesistenti. Per questo l'integrazione di Canva (Magic Studio, acquisizione di Leonardo.ai) rafforza, piu che minacciare, la sua posizione.",
+      },
+      {
+        heading: "Impact",
+        body:
+          "Il lavoro mostra come i framework classici della disciplina restino interpretativamente validi per le imprese digitali contemporanee, a patto di essere integrati con i concetti propri dei modelli SaaS. Propone inoltre una lettura delle condizioni (tre scenari di rischio individuati) sotto cui il vantaggio competitivo di Canva potrebbe invece indebolirsi.",
       },
     ],
-    tags: ["Placeholder"],
+    tags: [
+      "Thesis",
+      "Economia e Gestione delle Imprese",
+      "Canva",
+      "SaaS",
+      "Vantaggio competitivo",
+      "VRIO",
+      "Resource-Based View",
+      "Product-Led Growth",
+      "Intelligenza Artificiale Generativa",
+      "Modelli di business digitali",
+    ],
     heroImage: "",
     gallery: [],
     links: {
-      live: "",
-      demo: "",
+      live: "assets/Elaborato_Finale Erik Guza 1115020.pdf",
+      demo: "assets/Elaborato_Finale Erik Guza 1115020.pdf",
       github: "",
     },
   },
