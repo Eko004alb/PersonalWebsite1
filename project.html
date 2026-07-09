@@ -400,10 +400,13 @@
       ];
       const html = map
         .filter((item) => links[item.key])
-        .map(
-          (item) =>
-            `<a class="project-link" href="${escapeHtml(links[item.key])}" target="_blank" rel="noopener noreferrer">${item.label}</a>`
-        )
+        .map((item) => {
+          const href = links[item.key];
+          const isPdf = /\.pdf(?:$|[?#])/i.test(href);
+          const label = isPdf ? "Download PDF" : item.label;
+          const downloadAttr = isPdf ? ' download="Elaborato_Finale Erik Guza.pdf"' : "";
+          return `<a class="project-link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer"${downloadAttr}>${label}</a>`;
+        })
         .join("");
       return html ? `<div class="project-links">${html}</div>` : "";
     };

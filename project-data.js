@@ -125,7 +125,7 @@ window.PROJECTS = [
       "Intelligenza Artificiale Generativa",
       "Modelli di business digitali",
     ],
-    heroImage: "",
+    heroImage: "assets/thesis/canva-unibo-cover.png",
     gallery: [],
     links: {
       live: "assets/Elaborato_Finale Erik Guza 1115020.pdf",
