@@ -129,7 +129,7 @@ window.PROJECTS = [
     gallery: [],
     links: {
       live: "assets/Elaborato_Finale Erik Guza 1115020.pdf",
-      demo: "assets/Elaborato_Finale Erik Guza 1115020.pdf",
+      demo: "",
       github: "",
     },
   },

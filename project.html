@@ -156,6 +156,12 @@
       background: var(--text);
       color: var(--bg);
     }
+    .project-link-pdf {
+      padding: 12px 22px;
+      font-size: 15px;
+      font-weight: 600;
+      border-width: 2px;
+    }
     .resensio-hero-banner {
       width: 100%;
       aspect-ratio: 16 / 5;
@@ -403,9 +409,10 @@
         .map((item) => {
           const href = links[item.key];
           const isPdf = /\.pdf(?:$|[?#])/i.test(href);
-          const label = isPdf ? "Download PDF" : item.label;
+          const label = isPdf ? "See the file" : item.label;
           const downloadAttr = isPdf ? ' download="Elaborato_Finale Erik Guza.pdf"' : "";
-          return `<a class="project-link" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer"${downloadAttr}>${label}</a>`;
+          const className = isPdf ? "project-link project-link-pdf" : "project-link";
+          return `<a class="${className}" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer"${downloadAttr}>${label}</a>`;
         })
         .join("");
       return html ? `<div class="project-links">${html}</div>` : "";
