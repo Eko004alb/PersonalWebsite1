@@ -238,10 +238,10 @@ body::before {
   border: 1px solid transparent;
   background: transparent;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 1;
-  padding: 4px 6px;
-  border-radius: 8px;
+  padding: 6px 8px;
+  border-radius: 10px;
   opacity: 0.45;
   transition: opacity var(--transition), background var(--transition), border-color var(--transition), transform var(--transition);
 }
@@ -1488,8 +1488,8 @@ footer {
   .about-postcard:hover { transform: translateY(-2px); }
   footer { padding: 24px 20px; }
   .nav-links li:not(:nth-last-child(-n+2)) { display: none; }
-  .lang-switcher { gap: 4px; }
-  .lang-btn { font-size: 16px; padding: 3px 4px; }
+  .lang-switcher { gap: 6px; }
+  .lang-btn { font-size: 22px; padding: 5px 6px; }
   .decor-star,
   .decor-circle { display: none; }
 }

@@ -209,18 +209,127 @@
       'contact.text': 'I hapur për biseda interesante, bashkëpunime, ose thjesht një bisedë të mirë për marketing dhe ide.',
       'footer.blog': 'Blogu',
     },
+    it: {
+      'meta.description': 'Erik Guza — Marketing, Growth & Product.',
+      'nav.home': 'Home',
+      'nav.about': 'Chi sono',
+      'nav.experience': 'Esperienza',
+      'nav.education': 'Formazione',
+      'nav.projects': 'Progetti',
+      'nav.blog': 'Blog',
+      'nav.cta': 'Contattami',
+      'opera.aria': 'Video introduttivo della Sydney Opera House',
+      'opera.fallback': 'Il tuo browser non supporta il tag video.',
+      'hero.greeting': 'Ciao, sono Erik 👋',
+      'hero.heading': 'Sono appassionato di',
+      'hero.role_title': 'Vice President @ CEMS Club Stockholm',
+      'hero.role_sub': 'Attualmente guido le iniziative del club',
+      'typed.0': 'Growth',
+      'typed.1': 'Startup',
+      'typed.2': 'Vibe Coding',
+      'typed.3': 'Produttività',
+      'typed.4': 'Neuroscienze',
+      'about.label': 'Chi sono',
+      'about.title': 'Chi sono',
+      'about.p1': 'Sono <strong>Erik Guza</strong> — italo-albanese, studio International Management e sono appassionato di growth, startup e di costruire cose che scalano.',
+      'about.p2': 'Da agosto seguirò un <strong>Double Degree in International Management</strong> al CEMS (Stockholm School of Economics & UCD), dopo un exchange a <strong>UTS Sydney</strong> dove ho concluso nel top 4% della coorte e ho partecipato all\'<strong>Apple Foundation Programme</strong>.',
+      'about.p3': 'Ho guidato il growth di un brand fashion e-commerce, gestito team di marketing di 12 persone e costruito account di content da zero a oltre 6M di views. Mi interessano neuroscienze, produttività, vibe coding e tutto ciò che fa muovere le persone.',
+      'about.tag.growth': 'Growth',
+      'about.tag.marketing': 'Marketing',
+      'about.tag.product': 'Product',
+      'about.tag.startups': 'Startup',
+      'about.tag.neuroscience': 'Neuroscienze',
+      'about.tag.vibe': 'Vibe Coding',
+      'about.tag.apple': 'Apple Foundation',
+      'about.tag.cems': 'CEMS',
+      'about.lang_label': 'Lingue',
+      'about.lang.it': '🇮🇹 Italiano',
+      'about.lang.en': '🇬🇧 Inglese C1',
+      'about.lang.sq': '🇦🇱 Albanese',
+      'about.lang.de': '🇩🇪 Tedesco B1',
+      'about.postcards_aria': 'Foto personali di Erik',
+      'exp.label': 'Esperienza',
+      'exp.title': 'Dove lavoro',
+      'exp.badge.current': 'Attuale',
+      'exp.cems.role': 'Vice President · Stoccolma, Svezia · Lug 2026 – Presente',
+      'exp.settimo.role': 'Growth Intern · Bologna, Italia · Mar 2026 – Giu 2026',
+      'exp.settimo.b1': 'Ho lanciato una strategia di growth digitale full-funnel per un brand fashion femminile Made-in-Italy — +<strong>28% traffico organico</strong> e <strong>+18% CVR</strong> tramite SEO, ristrutturazione dei contenuti e A/B testing.',
+      'exp.settimo.b2': 'Ho scalato i canali Instagram & TikTok, riducendo il CPC del 31% e aumentando il following combinato di <strong>4.200+</strong>.',
+      'exp.settimo.b3': 'Ho sviluppato una dashboard real-time GA4 + Meta Ads per tracciare CAC, ROAS (picco <strong>4.2x</strong>) e retention.',
+      'exp.stand.role': 'Marketing Intern · Udine, Italia · Giu 2025 – Ago 2025',
+      'exp.stand.b1': 'Ho condotto <strong>analisi di mercato</strong> nazionali ed europee, valutando potenziali aziende partner per individuare opportunità di crescita strategica.',
+      'exp.stand.b2': 'Ho supportato il CEO nella gestione delle <strong>partnership strategiche</strong> e nel rafforzamento delle relazioni con gli stakeholder esterni.',
+      'exp.jebo.role': 'Marketing & Communication Associate · Bologna, Italia · Mag 2024 – Ott 2025',
+      'exp.jebo.b1': 'Ho pianificato ed eseguito strategie digitali per clienti, sviluppando la Digital Brand Identity di JEBO e guidando il rebranding LinkedIn.',
+      'exp.jebo.b2': 'Come Project Manager (Dic 2024 – Lug 2025), ho gestito un team di <strong>12 persone</strong> sulla strategia social media per clienti nazionali.',
+      'exp.jebo.b3': 'Ho progettato una campagna social a budget zero che ha generato <strong>400K+ impression/mese</strong> e <strong>+35% di crescita follower</strong> in 1 mese.',
+      'exp.creator.company': 'Content Creator & Founder',
+      'exp.creator.role': 'Udine, Italia · Lug 2022 – Giu 2023',
+      'exp.creator.b1': 'Ho fondato e gestito account Instagram e TikTok arrivando a <strong>12K+ follower</strong> e <strong>6M+ views</strong>.',
+      'edu.label': 'Formazione',
+      'edu.title': 'Percorso accademico',
+      'edu.badge.upcoming': 'In arrivo',
+      'edu.cems.role': 'Double Degree in International Management · Ago 2026 – Set 2027',
+      'edu.cems.desc': '4° Master in Management al mondo. Dual degree tra University College Dublin e Stockholm School of Economics.',
+      'edu.uts.role': 'Exchange Student – Faculty of Business · Sydney, Australia · Lug – Dic 2025',
+      'edu.uts.desc': "Selezionato per l'Apple Foundation Programme. Attivo in Bluebird Pantry – UTS Students' Association.",
+      'edu.unibo.role': 'Laurea in Management & Marketing · Bologna, Italia · Set 2023 – Lug 2026',
+      'edu.unibo.desc': 'Media: 28.3/30',
+      'proj.label': 'Lavori in evidenza',
+      'proj.title': 'Progetti selezionati',
+      'proj.bitetalk.desc': "Un'app che ti informa sul cibo che mangi. Scatta una foto del pasto e ricevi un riepilogo audio generato dall'AI con info nutrizionali, ingredienti e contesto culturale. Costruita e presentata nell'Apple Foundation Programme a UTS.",
+      'proj.bitetalk.tag.ios': 'iOS App',
+      'proj.bitetalk.tag.design': 'Product Design',
+      'proj.bitetalk.tag.apple': 'Apple Foundation',
+      'proj.bitetalk.tag.uts': 'UTS',
+      'proj.bitetalk.tag.ai': 'AI',
+      'proj.resensio.tagline': 'Senti cosa c\'è dentro',
+      'proj.resensio.desc': "Un'app gratuita, basata sulla scienza, che aiuta le persone a riconnettersi con il proprio linguaggio emotivo attraverso un self-assessment validato TAS-20 e un flusso pratico di journaling emotivo.",
+      'proj.resensio.tag.mh': 'Salute mentale',
+      'proj.resensio.tag.aware': 'Consapevolezza',
+      'proj.resensio.tag.tas': 'TAS-20',
+      'proj.resensio.tag.journal': 'Journal emotivo',
+      'proj.resensio.tag.research': 'Basata sulla ricerca',
+      'proj.thesis.download_aria': 'Scarica il PDF della tesi',
+      'proj.thesis.desc': "Un'analisi del caso Canva attraverso i framework dell'Economia e Gestione delle Imprese (Abell, Porter, RBV/VRIO, dynamic capabilities) per valutare se il suo vantaggio competitivo regga alla pressione dell'IA generativa.",
+      'proj.thesis.tag.thesis': 'Tesi',
+      'proj.thesis.tag.canva': 'Canva',
+      'proj.thesis.tag.saas': 'SaaS',
+      'proj.thesis.tag.vrio': 'VRIO',
+      'proj.thesis.tag.genai': 'Gen AI',
+      'reading.label': 'Letture',
+      'reading.title': 'Cosa sto leggendo',
+      'reading.notion': 'Vedi la lista completa su Notion →',
+      'book.status.reading': 'In lettura',
+      'book.status.read': 'Letto',
+      'blog.label': 'Scrittura',
+      'blog.title': 'Blog',
+      'blog.meta': '6 Giu 2026 · Saggio',
+      'blog.post_title': 'Un paese che ami e in cui non vivi',
+      'blog.excerpt': "L'Albania, la sua diaspora e l'economia dell'appartenenza da altrove.",
+      'contact.label': 'Contatti',
+      'contact.title': 'Restiamo in contatto',
+      'contact.text': 'Aperto a conversazioni interessanti, collaborazioni, o semplicemente a una bella chiacchierata su marketing e idee.',
+      'footer.blog': 'Blog',
+    },
   };
+
+  const SUPPORTED_LANGS = ['en', 'it', 'sq'];
+
+  function normalizeLang(lang) {
+    return SUPPORTED_LANGS.includes(lang) ? lang : DEFAULT_LANG;
+  }
 
   function getLang() {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored === 'en' || stored === 'sq') return stored;
+      if (SUPPORTED_LANGS.includes(stored)) return stored;
     } catch (_) { /* ignore */ }
     return DEFAULT_LANG;
   }
 
   function setLang(lang) {
-    const next = lang === 'sq' ? 'sq' : 'en';
+    const next = normalizeLang(lang);
     try {
       localStorage.setItem(STORAGE_KEY, next);
     } catch (_) { /* ignore */ }
@@ -247,7 +356,7 @@
   }
 
   function applyLanguage(lang) {
-    const l = lang === 'sq' ? 'sq' : 'en';
+    const l = normalizeLang(lang);
     document.documentElement.lang = l;
 
     const metaDesc = document.querySelector('meta[name="description"]');
