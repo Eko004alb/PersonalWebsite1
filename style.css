@@ -220,6 +220,48 @@ body::before {
   color: var(--bg) !important;
 }
 
+.lang-switcher-item {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.lang-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lang-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 4px 6px;
+  border-radius: 8px;
+  opacity: 0.45;
+  transition: opacity var(--transition), background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.lang-btn:hover {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+.lang-btn.is-active {
+  opacity: 1;
+  border-color: rgba(26, 26, 26, 0.18);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.lang-btn:focus-visible {
+  outline: 2px solid rgba(26, 26, 26, 0.45);
+  outline-offset: 2px;
+}
+
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .glass-nav {
     background: rgba(244, 240, 233, 0.95);
@@ -395,6 +437,10 @@ body::before {
   font-weight: 600;
   color: var(--text);
   font-size: 13px;
+}
+
+.role-chip-text span {
+  display: block;
 }
 
 /* ---- PHOTO GRID ---- */
@@ -1441,7 +1487,9 @@ footer {
   }
   .about-postcard:hover { transform: translateY(-2px); }
   footer { padding: 24px 20px; }
-  .nav-links li:not(:last-child) { display: none; }
+  .nav-links li:not(:nth-last-child(-n+2)) { display: none; }
+  .lang-switcher { gap: 4px; }
+  .lang-btn { font-size: 16px; padding: 3px 4px; }
   .decor-star,
   .decor-circle { display: none; }
 }

@@ -34,23 +34,29 @@
       <div class="glass-content nav-inner">
         <a href="#hero" class="nav-logo">ERIK GUZA<sup>™</sup></a>
         <ul class="nav-links nav-list">
-          <li><a href="#hero" class="nav-item active">Home</a></li>
-          <li><a href="#about" class="nav-item">About</a></li>
-          <li><a href="#experience" class="nav-item">Experience</a></li>
-          <li><a href="#education" class="nav-item">Education</a></li>
-          <li><a href="projects.html" class="nav-item">Projects</a></li>
-          <li><a href="blog.html" class="nav-item">Blog</a></li>
-          <li><a href="mailto:erikguzawork@gmail.com" class="nav-cta">Get in Touch</a></li>
+          <li><a href="#hero" class="nav-item active" data-i18n="nav.home">Home</a></li>
+          <li><a href="#about" class="nav-item" data-i18n="nav.about">About</a></li>
+          <li><a href="#experience" class="nav-item" data-i18n="nav.experience">Experience</a></li>
+          <li><a href="#education" class="nav-item" data-i18n="nav.education">Education</a></li>
+          <li><a href="projects.html" class="nav-item" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="blog.html" class="nav-item" data-i18n="nav.blog">Blog</a></li>
+          <li><a href="mailto:erikguzawork@gmail.com" class="nav-cta" data-i18n="nav.cta">Get in Touch</a></li>
+          <li class="lang-switcher-item">
+            <div class="lang-switcher" role="group" aria-label="Language">
+              <button type="button" class="lang-btn is-active" data-set-lang="en" aria-label="English" aria-pressed="true" title="English">🇬🇧</button>
+              <button type="button" class="lang-btn" data-set-lang="sq" aria-label="Shqip" aria-pressed="false" title="Shqip">🇦🇱</button>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
   </header>
 
   <!-- OPERA INTRO -->
-  <section class="opera-intro" aria-label="Sydney Opera House intro video">
+  <section class="opera-intro" data-i18n-aria="opera.aria" aria-label="Sydney Opera House intro video">
     <video class="opera-intro-video" autoplay muted playsinline loop preload="metadata">
       <source src="assets/Sydney video Header.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
+      <span data-i18n="opera.fallback">Your browser does not support the video tag.</span>
     </video>
   </section>
 
@@ -62,9 +68,9 @@
       <div class="hero-logo-wrap fade-in">
         <img src="assets/104.svg" alt="104 logo" class="hero-main-logo" />
       </div>
-      <p class="hero-greeting fade-in">Hey, I'm Erik 👋</p>
+      <p class="hero-greeting fade-in" data-i18n="hero.greeting">Hey, I'm Erik 👋</p>
       <h1 class="hero-heading fade-in">
-        I'm passionate about<br>
+        <span data-i18n="hero.heading">I'm passionate about</span><br>
         <span class="typed-text"></span><span class="cursor"></span>
       </h1>
 
@@ -76,8 +82,8 @@
           class="role-chip-logo"
         />
         <div class="role-chip-text">
-          <strong>Vice President @ CEMS Club Stockholm</strong>
-          Currently leading club initiatives
+          <strong data-i18n="hero.role_title">Vice President @ CEMS Club Stockholm</strong>
+          <span data-i18n="hero.role_sub">Currently leading club initiatives</span>
         </div>
       </div>
     </div>
@@ -113,21 +119,21 @@
     <div class="section-wrap">
       <img src="assets/star-clean.png" alt="" class="decor-star about-star-a" aria-hidden="true" />
       <span class="decor-circle about-circle-a" aria-hidden="true"></span>
-      <p class="section-label fade-in">About</p>
-      <h2 class="section-title fade-in">Who I am</h2>
+      <p class="section-label fade-in" data-i18n="about.label">About</p>
+      <h2 class="section-title fade-in" data-i18n="about.title">Who I am</h2>
       <div class="about-grid">
         <div class="about-text">
-          <p class="fade-in">
+          <p class="fade-in" data-i18n-html="about.p1">
             I'm <strong>Erik Guza</strong> — Albanian-Italian, studying International Management
             and passionate about growth, startups, and building things that scale.
           </p>
-          <p class="fade-in">
+          <p class="fade-in" data-i18n-html="about.p2">
             From August I will be pursuing a <strong>Double Degree in International Management</strong> at CEMS
             (Stockholm School of Economics & UCD), after an exchange at <strong>UTS Sydney</strong>
             where I finished in the top 4% of my cohort and participated in the
             <strong>Apple Foundation Programme</strong>.
           </p>
-          <p class="fade-in">
+          <p class="fade-in" data-i18n-html="about.p3">
             I've led growth for a fashion e-commerce brand, managed 12-person marketing teams,
             and built content accounts from zero to 6M+ views. I care about neuroscience,
             productivity, vibe coding, and anything that makes people move.
@@ -135,25 +141,25 @@
         </div>
         <div>
           <div class="tag-row fade-in">
-            <span class="tag">Growth</span>
-            <span class="tag">Marketing</span>
-            <span class="tag">Product</span>
-            <span class="tag">Startups</span>
-            <span class="tag">Neuroscience</span>
-            <span class="tag">Vibe Coding</span>
-            <span class="tag">Apple Foundation</span>
-            <span class="tag">CEMS</span>
+            <span class="tag" data-i18n="about.tag.growth">Growth</span>
+            <span class="tag" data-i18n="about.tag.marketing">Marketing</span>
+            <span class="tag" data-i18n="about.tag.product">Product</span>
+            <span class="tag" data-i18n="about.tag.startups">Startups</span>
+            <span class="tag" data-i18n="about.tag.neuroscience">Neuroscience</span>
+            <span class="tag" data-i18n="about.tag.vibe">Vibe Coding</span>
+            <span class="tag" data-i18n="about.tag.apple">Apple Foundation</span>
+            <span class="tag" data-i18n="about.tag.cems">CEMS</span>
           </div>
           <div class="lang-row fade-in">
-            <p class="lang-label">Languages</p>
+            <p class="lang-label" data-i18n="about.lang_label">Languages</p>
             <div class="tag-row">
-              <span class="tag">🇮🇹 Italian</span>
-              <span class="tag">🇬🇧 English C1</span>
-              <span class="tag">🇦🇱 Albanian</span>
-              <span class="tag">🇩🇪 German B1</span>
+              <span class="tag" data-i18n="about.lang.it">🇮🇹 Italian</span>
+              <span class="tag" data-i18n="about.lang.en">🇬🇧 English C1</span>
+              <span class="tag" data-i18n="about.lang.sq">🇦🇱 Albanian</span>
+              <span class="tag" data-i18n="about.lang.de">🇩🇪 German B1</span>
             </div>
           </div>
-          <div class="about-postcards fade-in" aria-label="Personal photos of Erik">
+          <div class="about-postcards fade-in" data-i18n-aria="about.postcards_aria" aria-label="Personal photos of Erik">
             <figure class="about-postcard about-postcard-left">
               <img src="assets/about-erik-hollywood.png" alt="Erik standing at sunset in front of the Hollywood Hills" loading="lazy" />
             </figure>
@@ -171,8 +177,8 @@
     <div class="section-wrap">
       <img src="assets/star-clean.png" alt="" class="decor-star experience-star-a" aria-hidden="true" />
       <span class="decor-circle experience-circle-a" aria-hidden="true"></span>
-      <p class="section-label fade-in">Experience</p>
-      <h2 class="section-title fade-in">Where I work</h2>
+      <p class="section-label fade-in" data-i18n="exp.label">Experience</p>
+      <h2 class="section-title fade-in" data-i18n="exp.title">Where I work</h2>
 
       <!-- CEMS Club Stockholm -->
       <div class="exp-item fade-in">
@@ -180,9 +186,9 @@
         <div class="exp-content">
           <div class="exp-top">
             <span class="exp-company">CEMS Club Stockholm</span>
-            <span class="exp-badge">Current</span>
+            <span class="exp-badge" data-i18n="exp.badge.current">Current</span>
           </div>
-          <p class="exp-role">Vice President · Stockholm, Sweden · Jul 2026 – Present</p>
+          <p class="exp-role" data-i18n="exp.cems.role">Vice President · Stockholm, Sweden · Jul 2026 – Present</p>
         </div>
       </div>
 
@@ -193,11 +199,11 @@
           <div class="exp-top">
             <span class="exp-company"><a href="https://www.linkedin.com/company/settimo-cielo-collections/" target="_blank" rel="noopener" class="exp-company-link">Settimo Cielo</a></span>
           </div>
-          <p class="exp-role">Growth Intern · Bologna, Italy · Mar 2026 – Jun 2026</p>
+          <p class="exp-role" data-i18n="exp.settimo.role">Growth Intern · Bologna, Italy · Mar 2026 – Jun 2026</p>
           <ul class="exp-bullets">
-            <li>Launched a full-funnel digital growth strategy for a Made-in-Italy women's fashion brand — drove <strong>+28% organic traffic</strong> and <strong>+18% CVR</strong> via SEO, content restructuring, and A/B testing.</li>
-            <li>Scaled Instagram & TikTok channels, cutting CPC by 31% and growing combined following by <strong>4,200+</strong>.</li>
-            <li>Developed a real-time GA4 + Meta Ads dashboard tracking CAC, ROAS (peak <strong>4.2x</strong>), and retention.</li>
+            <li data-i18n-html="exp.settimo.b1">Launched a full-funnel digital growth strategy for a Made-in-Italy women's fashion brand — drove <strong>+28% organic traffic</strong> and <strong>+18% CVR</strong> via SEO, content restructuring, and A/B testing.</li>
+            <li data-i18n-html="exp.settimo.b2">Scaled Instagram & TikTok channels, cutting CPC by 31% and growing combined following by <strong>4,200+</strong>.</li>
+            <li data-i18n-html="exp.settimo.b3">Developed a real-time GA4 + Meta Ads dashboard tracking CAC, ROAS (peak <strong>4.2x</strong>), and retention.</li>
           </ul>
         </div>
       </div>
@@ -209,10 +215,10 @@
           <div class="exp-top">
             <span class="exp-company"><a href="https://www.linkedin.com/company/stand-europa-srl/" target="_blank" rel="noopener" class="exp-company-link">Stand Europa Srl</a></span>
           </div>
-          <p class="exp-role">Marketing Intern · Udine, Italy · Jun 2025 – Aug 2025</p>
+          <p class="exp-role" data-i18n="exp.stand.role">Marketing Intern · Udine, Italy · Jun 2025 – Aug 2025</p>
           <ul class="exp-bullets">
-            <li>Conducted national and European <strong>market analysis</strong>, evaluating potential partner companies to identify strategic growth opportunities.</li>
-            <li>Supported the CEO in managing <strong>strategic partnerships</strong> and strengthening external stakeholder relationships.</li>
+            <li data-i18n-html="exp.stand.b1">Conducted national and European <strong>market analysis</strong>, evaluating potential partner companies to identify strategic growth opportunities.</li>
+            <li data-i18n-html="exp.stand.b2">Supported the CEO in managing <strong>strategic partnerships</strong> and strengthening external stakeholder relationships.</li>
           </ul>
         </div>
       </div>
@@ -224,11 +230,11 @@
           <div class="exp-top">
             <span class="exp-company"><a href="https://www.linkedin.com/company/jebobologna/" target="_blank" rel="noopener" class="exp-company-link">JEBO</a></span>
           </div>
-          <p class="exp-role">Marketing & Communication Associate · Bologna, Italy · May 2024 – Oct 2025</p>
+          <p class="exp-role" data-i18n="exp.jebo.role">Marketing & Communication Associate · Bologna, Italy · May 2024 – Oct 2025</p>
           <ul class="exp-bullets">
-            <li>Planned and executed digital strategies for clients, developing JEBO's Digital Brand Identity and leading its LinkedIn rebranding.</li>
-            <li>As Project Manager (Dec 2024 – Jul 2025), managed a team of <strong>12 people</strong> across social media strategy for national clients.</li>
-            <li>Designed a zero-budget social campaign generating <strong>400K+ impressions/month</strong> and <strong>+35% follower growth</strong> in 1 month.</li>
+            <li data-i18n-html="exp.jebo.b1">Planned and executed digital strategies for clients, developing JEBO's Digital Brand Identity and leading its LinkedIn rebranding.</li>
+            <li data-i18n-html="exp.jebo.b2">As Project Manager (Dec 2024 – Jul 2025), managed a team of <strong>12 people</strong> across social media strategy for national clients.</li>
+            <li data-i18n-html="exp.jebo.b3">Designed a zero-budget social campaign generating <strong>400K+ impressions/month</strong> and <strong>+35% follower growth</strong> in 1 month.</li>
           </ul>
         </div>
       </div>
@@ -238,11 +244,11 @@
         <div class="exp-logo-placeholder">✦</div>
         <div class="exp-content">
           <div class="exp-top">
-            <span class="exp-company">Content Creator & Founder</span>
+            <span class="exp-company" data-i18n="exp.creator.company">Content Creator & Founder</span>
           </div>
-          <p class="exp-role">Udine, Italy · Jul 2022 – Jun 2023</p>
+          <p class="exp-role" data-i18n="exp.creator.role">Udine, Italy · Jul 2022 – Jun 2023</p>
           <ul class="exp-bullets">
-            <li>Founded and managed Instagram and TikTok accounts reaching <strong>12K+ followers</strong> and <strong>6M+ views</strong>.</li>
+            <li data-i18n-html="exp.creator.b1">Founded and managed Instagram and TikTok accounts reaching <strong>12K+ followers</strong> and <strong>6M+ views</strong>.</li>
           </ul>
         </div>
       </div>
@@ -254,15 +260,15 @@
     <div class="section-wrap">
       <img src="assets/star-clean.png" alt="" class="decor-star education-star-a" aria-hidden="true" />
       <span class="decor-circle education-circle-a" aria-hidden="true"></span>
-      <p class="section-label fade-in">Education</p>
-      <h2 class="section-title fade-in">Academic background</h2>
+      <p class="section-label fade-in" data-i18n="edu.label">Education</p>
+      <h2 class="section-title fade-in" data-i18n="edu.title">Academic background</h2>
 
       <div class="exp-item fade-in">
         <img src="assets/cems-logo.png" alt="CEMS" class="exp-logo" />
         <div class="exp-content">
-          <div class="exp-top"><span class="exp-company"><a href="https://www.cems.org/cems-mim" target="_blank" rel="noopener" class="exp-company-link">CEMS</a> — UCD Dublin & SSE Stockholm <span class="logo-flags edu-flags" aria-hidden="true">🇮🇪 🇸🇪</span></span><span class="exp-badge">Upcoming</span></div>
-          <p class="exp-role">Double Degree in International Management · Aug 2026 – Sep 2027</p>
-          <p class="exp-desc">4th Master in Management Worldwide. Dual degree across University College Dublin and Stockholm School of Economics.</p>
+          <div class="exp-top"><span class="exp-company"><a href="https://www.cems.org/cems-mim" target="_blank" rel="noopener" class="exp-company-link">CEMS</a> — UCD Dublin & SSE Stockholm <span class="logo-flags edu-flags" aria-hidden="true">🇮🇪 🇸🇪</span></span><span class="exp-badge" data-i18n="edu.badge.upcoming">Upcoming</span></div>
+          <p class="exp-role" data-i18n="edu.cems.role">Double Degree in International Management · Aug 2026 – Sep 2027</p>
+          <p class="exp-desc" data-i18n="edu.cems.desc">4th Master in Management Worldwide. Dual degree across University College Dublin and Stockholm School of Economics.</p>
         </div>
       </div>
 
@@ -270,8 +276,8 @@
         <img src="assets/uts-clean.png" alt="UTS" class="exp-logo" />
         <div class="exp-content">
           <div class="exp-top"><span class="exp-company">University of Technology Sydney (UTS) <span class="logo-flags edu-flags" aria-hidden="true">🇦🇺</span></span></div>
-          <p class="exp-role">Exchange Student – Faculty of Business · Sydney, Australia · Jul – Dec 2025</p>
-          <p class="exp-desc">Selected for the Apple Foundation Programme. Active in Bluebird Pantry – UTS Students' Association.</p>
+          <p class="exp-role" data-i18n="edu.uts.role">Exchange Student – Faculty of Business · Sydney, Australia · Jul – Dec 2025</p>
+          <p class="exp-desc" data-i18n="edu.uts.desc">Selected for the Apple Foundation Programme. Active in Bluebird Pantry – UTS Students' Association.</p>
         </div>
       </div>
 
@@ -279,8 +285,8 @@
         <img src="assets/unibo-logo.png" alt="UNIBO" class="exp-logo" />
         <div class="exp-content">
           <div class="exp-top"><span class="exp-company">Alma Mater Studiorum – Università di Bologna <span class="logo-flags edu-flags" aria-hidden="true">🇮🇹</span></span></div>
-          <p class="exp-role">Bachelor in Management & Marketing · Bologna, Italy · Sep 2023 – Present</p>
-          <p class="exp-desc">GPA: 28.3/30</p>
+          <p class="exp-role" data-i18n="edu.unibo.role">Bachelor in Management & Marketing · Bologna, Italy · Sep 2023 – Jul 2026</p>
+          <p class="exp-desc" data-i18n="edu.unibo.desc">GPA: 28.3/30</p>
         </div>
       </div>
     </div>
@@ -291,8 +297,8 @@
     <div class="section-wrap">
       <img src="assets/star-clean.png" alt="" class="decor-star projects-star-a" aria-hidden="true" />
       <span class="decor-circle projects-circle-a" aria-hidden="true"></span>
-      <p class="section-label fade-in">Featured Work</p>
-      <h2 class="section-title fade-in">Selected projects</h2>
+      <p class="section-label fade-in" data-i18n="proj.label">Featured Work</p>
+      <h2 class="section-title fade-in" data-i18n="proj.title">Selected projects</h2>
 
       <div class="projects-list">
         <article class="featured-project-card fade-in">
@@ -307,17 +313,17 @@
             <a href="project.html?slug=bitetalk" class="featured-project-title-link">
               <h3 class="project-name">BiteTalk</h3>
             </a>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="proj.bitetalk.desc">
               An app that informs you about the food you eat. Snap a photo of your meal
               and get an AI-generated audio summary of nutritional info, ingredients, and
               cultural context. Built and pitched as part of the Apple Foundation Programme at UTS.
             </p>
             <div class="project-tags">
-              <span class="project-tag">iOS App</span>
-              <span class="project-tag">Product Design</span>
-              <span class="project-tag">Apple Foundation</span>
-              <span class="project-tag">UTS</span>
-              <span class="project-tag">AI</span>
+              <span class="project-tag" data-i18n="proj.bitetalk.tag.ios">iOS App</span>
+              <span class="project-tag" data-i18n="proj.bitetalk.tag.design">Product Design</span>
+              <span class="project-tag" data-i18n="proj.bitetalk.tag.apple">Apple Foundation</span>
+              <span class="project-tag" data-i18n="proj.bitetalk.tag.uts">UTS</span>
+              <span class="project-tag" data-i18n="proj.bitetalk.tag.ai">AI</span>
             </div>
           </div>
         </article>
@@ -332,7 +338,7 @@
               <div class="resensio-card-center">
                 <div class="resensio-orb resensio-orb-110"></div>
                 <div class="resensio-card-wordmark"><span>Re</span>sensio</div>
-                <div class="resensio-card-tagline">Feel what's inside</div>
+                <div class="resensio-card-tagline" data-i18n="proj.resensio.tagline">Feel what's inside</div>
               </div>
             </div>
           </a>
@@ -344,17 +350,17 @@
             <a href="project.html?slug=project-02" class="featured-project-title-link">
               <h3 class="project-name">Resensio</h3>
             </a>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="proj.resensio.desc">
               A free, science-backed awareness app that helps people reconnect with
               their emotional language through a validated TAS-20 based self-assessment
               and a practical emotional journaling flow.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Mental Health</span>
-              <span class="project-tag">Self-Awareness</span>
-              <span class="project-tag">TAS-20</span>
-              <span class="project-tag">Emotional Journal</span>
-              <span class="project-tag">Research-Backed</span>
+              <span class="project-tag" data-i18n="proj.resensio.tag.mh">Mental Health</span>
+              <span class="project-tag" data-i18n="proj.resensio.tag.aware">Self-Awareness</span>
+              <span class="project-tag" data-i18n="proj.resensio.tag.tas">TAS-20</span>
+              <span class="project-tag" data-i18n="proj.resensio.tag.journal">Emotional Journal</span>
+              <span class="project-tag" data-i18n="proj.resensio.tag.research">Research-Backed</span>
             </div>
           </div>
         </article>
@@ -364,6 +370,7 @@
             href="assets/Elaborato_Finale Erik Guza 1115020.pdf"
             class="featured-project-image-link"
             download="Elaborato_Finale Erik Guza.pdf"
+            data-i18n-aria="proj.thesis.download_aria"
             aria-label="Download thesis PDF"
           >
             <img
@@ -379,17 +386,17 @@
             <a href="project.html?slug=canva-thesis" class="featured-project-title-link">
               <h3 class="project-name">Da startup australiana a unicorno globale: Canva</h3>
             </a>
-            <p class="project-desc">
+            <p class="project-desc" data-i18n="proj.thesis.desc">
               Un'analisi del caso Canva attraverso i framework dell'Economia e Gestione delle Imprese
               (Abell, Porter, RBV/VRIO, dynamic capabilities) per valutare se il suo vantaggio competitivo
               regga alla pressione dell'IA generativa.
             </p>
             <div class="project-tags">
-              <span class="project-tag">Thesis</span>
-              <span class="project-tag">Canva</span>
-              <span class="project-tag">SaaS</span>
-              <span class="project-tag">VRIO</span>
-              <span class="project-tag">Gen AI</span>
+              <span class="project-tag" data-i18n="proj.thesis.tag.thesis">Thesis</span>
+              <span class="project-tag" data-i18n="proj.thesis.tag.canva">Canva</span>
+              <span class="project-tag" data-i18n="proj.thesis.tag.saas">SaaS</span>
+              <span class="project-tag" data-i18n="proj.thesis.tag.vrio">VRIO</span>
+              <span class="project-tag" data-i18n="proj.thesis.tag.genai">Gen AI</span>
             </div>
           </div>
         </article>
@@ -402,8 +409,8 @@
     <div class="section-wrap">
       <img src="assets/star-clean.png" alt="" class="decor-star reading-star-a" aria-hidden="true" />
       <span class="decor-circle reading-circle-a" aria-hidden="true"></span>
-      <p class="section-label fade-in">Reading</p>
-      <h2 class="section-title fade-in">What I'm reading</h2>
+      <p class="section-label fade-in" data-i18n="reading.label">Reading</p>
+      <h2 class="section-title fade-in" data-i18n="reading.title">What I'm reading</h2>
 
       <!-- Books grid -->
       <div id="books-grid" class="books-grid">
@@ -411,7 +418,7 @@
       </div>
 
       <div class="reading-footer fade-in">
-        <a href="https://www.notion.so/Book-Tracker-ada1e1a6ce3a44b8b64479398a810682?source=copy_link" target="_blank" rel="noopener" class="reading-notion-link">
+        <a href="https://www.notion.so/Book-Tracker-ada1e1a6ce3a44b8b64479398a810682?source=copy_link" target="_blank" rel="noopener" class="reading-notion-link" data-i18n="reading.notion">
           View full list in Notion →
         </a>
       </div>
@@ -421,8 +428,8 @@
   <!-- BLOG -->
   <section id="blog">
     <div class="section-wrap">
-      <p class="section-label fade-in">Writing</p>
-      <h2 class="section-title fade-in">Blog</h2>
+      <p class="section-label fade-in" data-i18n="blog.label">Writing</p>
+      <h2 class="section-title fade-in" data-i18n="blog.title">Blog</h2>
       <div class="blog-preview fade-in">
         <a href="posts/a-country-you-love-and-do-not-live-in.html" class="blog-preview-link">
           <img
@@ -434,9 +441,9 @@
             height="80"
           />
           <span class="blog-preview-body">
-            <span class="blog-preview-meta">6 Jun 2026 · Essay</span>
-            <span class="blog-preview-title">A Country You Love and Do Not Live In</span>
-            <span class="blog-preview-excerpt">Albania, its diaspora, and the economics of belonging from elsewhere.</span>
+            <span class="blog-preview-meta" data-i18n="blog.meta">6 Jun 2026 · Essay</span>
+            <span class="blog-preview-title" data-i18n="blog.post_title">A Country You Love and Do Not Live In</span>
+            <span class="blog-preview-excerpt" data-i18n="blog.excerpt">Albania, its diaspora, and the economics of belonging from elsewhere.</span>
           </span>
         </a>
       </div>
@@ -448,11 +455,11 @@
     <div class="section-wrap">
       <img src="assets/star-clean.png" alt="" class="decor-star contact-star-a" aria-hidden="true" />
       <span class="decor-circle contact-circle-a" aria-hidden="true"></span>
-      <p class="section-label fade-in">Contact</p>
-      <h2 class="section-title fade-in">Let's connect</h2>
+      <p class="section-label fade-in" data-i18n="contact.label">Contact</p>
+      <h2 class="section-title fade-in" data-i18n="contact.title">Let's connect</h2>
       <div class="contact-inner fade-in">
         <div class="contact-text">
-          <p>Open to interesting conversations, collaborations, or just a good chat about marketing and ideas.</p>
+          <p data-i18n="contact.text">Open to interesting conversations, collaborations, or just a good chat about marketing and ideas.</p>
         </div>
         <div class="contact-links">
           <a href="mailto:erikguzawork@gmail.com" class="contact-link">
@@ -479,14 +486,15 @@
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/erik-guza-835805293/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://x.com/ErikGWork142599" target="_blank" rel="noopener">X</a>
-        <a href="blog.html">Blog</a>
+        <a href="blog.html" data-i18n="footer.blog">Blog</a>
       </div>
     </div>
   </footer>
 
+  <script src="i18n.js"></script>
   <script>
     // Typing animation
-    const phrases = [
+    let phrases = (window.SiteI18n && SiteI18n.getTypedPhrases()) || [
       'Growth',
       'Startups',
       'Vibe Coding',
@@ -495,17 +503,29 @@
     ];
     let pi = 0, ci = 0, deleting = false;
     const el = document.querySelector('.typed-text');
+    let typeTimer = null;
     function type() {
       const phrase = phrases[pi];
+      if (!phrase) return;
       if (!deleting) {
         el.textContent = phrase.slice(0, ++ci);
-        if (ci === phrase.length) { deleting = true; setTimeout(type, 1800); return; }
+        if (ci === phrase.length) { deleting = true; typeTimer = setTimeout(type, 1800); return; }
       } else {
         el.textContent = phrase.slice(0, --ci);
         if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
       }
-      setTimeout(type, deleting ? 40 : 80);
+      typeTimer = setTimeout(type, deleting ? 40 : 80);
     }
+    function resetTyping(lang) {
+      if (typeTimer) clearTimeout(typeTimer);
+      phrases = (window.SiteI18n && SiteI18n.getTypedPhrases(lang)) || phrases;
+      pi = 0;
+      ci = 0;
+      deleting = false;
+      if (el) el.textContent = '';
+      type();
+    }
+    document.addEventListener('languagechange', (e) => resetTyping(e.detail?.lang));
     type();
 
     // Fade in on scroll
@@ -533,6 +553,8 @@
       { title: 'The Seeker of Nothing',author: 'Kabir Munjal',      status: 'Read',    rating: 4,       currentPage: 212, totalPages: 212 },
     ];
 
+    let cachedBooks = null;
+
     function parseNotionBooks(data) {
       return data.results.map(page => {
         const p = page.properties;
@@ -549,6 +571,7 @@
     }
 
     function renderBooks(books) {
+      cachedBooks = books;
       const read = books.filter(b => b.status === 'Read');
 
       // Books grid
@@ -569,6 +592,10 @@
       // Re-observe new fade-in elements
       grid.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
     }
+
+    document.addEventListener('languagechange', () => {
+      if (cachedBooks) renderBooks(cachedBooks);
+    });
 
     // Try live Notion data first, fall back to hardcoded
     fetch('notion-books.php')
